@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment2">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.oc.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_rateFragment"
+            app:destination="@id/rateFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_calcFragment"
+            app:destination="@id/calcFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.oc.fragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment2_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateFragment"
+        android:name="com.example.oc.fragment.RateFragment"
+        android:label="fragment_rate"
+        tools:layout="@layout/fragment_rate" />
+    <fragment
+        android:id="@+id/calcFragment"
+        android:name="com.example.oc.fragment.CalcFragment"
+        android:label="fragment_calc"
+        tools:layout="@layout/fragment_calc" >
+        <action
+            android:id="@+id/action_calcFragment_to_rateFragment"
+            app:destination="@id/rateFragment" />
+    </fragment>
+
+
+</navigation>
