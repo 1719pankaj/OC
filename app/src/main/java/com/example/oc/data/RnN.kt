@@ -4,6 +4,9 @@ class RnN {
     companion object {
         var Owner: String = "MTL"
 
+        var workingHours: Double = 7.0
+        var lunchHours: Double = 0.5
+
         var TruckToShed: Int = 135
         var WagonToShed: Int = 115
         var WagonToPlatform: Int = 170

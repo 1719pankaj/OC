@@ -1,624 +1,770 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.RateFragment">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/old_basic_card_view"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    android:layout_height="match_parent">
 
 
-        <EditText
-            android:id="@+id/old_basicET"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="30600" />
+            android:layout_height="wrap_content"
+            tools:context=".fragment.RateFragment">
 
-    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/old_basic_labTV"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/old_basic_card_view"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <EditText
+                    android:id="@+id/old_basicET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="30600" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/old_basic_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Old Basic"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/old_basic_card_view"
+                app:layout_constraintStart_toStartOf="@id/old_basic_card_view"
+                app:layout_constraintTop_toBottomOf="@id/old_basic_card_view" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/old_da_card_view"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/old_basic_card_view"
+                app:layout_constraintStart_toEndOf="@+id/old_basic_card_view"
+                app:layout_constraintTop_toTopOf="@+id/old_basic_card_view">
+
+                <EditText
+                    android:id="@+id/old_daET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    tools:text="92.9" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/old_da_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Old DA %"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/old_da_card_view"
+                app:layout_constraintStart_toStartOf="@+id/old_da_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/old_da_card_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/old_hra_card_view"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/old_da_card_view"
+                app:layout_constraintStart_toEndOf="@+id/old_da_card_view"
+                app:layout_constraintTop_toTopOf="@+id/old_da_card_view">
+
+                <EditText
+                    android:id="@+id/old_hraET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    tools:text="30" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/old_hra_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Old HRA"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/old_hra_card_view"
+                app:layout_constraintStart_toStartOf="@+id/old_hra_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/old_hra_card_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/days_card_view"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/old_hra_card_view"
+                app:layout_constraintStart_toEndOf="@+id/old_hra_card_view"
+                app:layout_constraintTop_toTopOf="@+id/old_hra_card_view">
+
+                <EditText
+                    android:id="@+id/daysET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    tools:text="365" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/days_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Days"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/days_card_view"
+                app:layout_constraintStart_toStartOf="@+id/days_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/days_card_view" />
+
+            <View
+                android:id="@+id/divider_first"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upper_per_bag_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/new_basic_card_view"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_first">
+
+
+                <EditText
+                    android:id="@+id/new_basicET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="48100" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/new_basic_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="New Basic"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_basic_card_view"
+                app:layout_constraintStart_toStartOf="@id/new_basic_card_view"
+                app:layout_constraintTop_toBottomOf="@id/new_basic_card_view" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/new_da_card_view"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/new_basic_card_view"
+                app:layout_constraintStart_toEndOf="@+id/new_basic_card_view"
+                app:layout_constraintTop_toTopOf="@+id/new_basic_card_view">
+
+                <EditText
+                    android:id="@+id/new_daET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    tools:text="37.9" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/new_da_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="New DA %"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_da_card_view"
+                app:layout_constraintStart_toStartOf="@+id/new_da_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/new_da_card_view" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/new_hra_card_view"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/new_da_card_view"
+                app:layout_constraintStart_toEndOf="@+id/new_da_card_view"
+                app:layout_constraintTop_toTopOf="@+id/new_da_card_view">
+
+                <EditText
+                    android:id="@+id/new_hraET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/floating_bg"
+                    android:padding="2dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    tools:text="27" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/new_hra_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="New HRA"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_hra_card_view"
+                app:layout_constraintStart_toStartOf="@+id/new_hra_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/new_hra_card_view" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/wagon_to_shed_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Wagon To Shed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/wagon_to_shedTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_shedTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_shed_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Truck To Shed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_second" />
+
+            <TextView
+                android:id="@+id/wagon_to_platform_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Wagon To Platform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/wagon_to_platformTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_labTV" />
+
+            <TextView
+                android:id="@+id/platform_to_shed_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Platform To Shed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_platform_labTV" />
+
+            <TextView
+                android:id="@+id/platform_to_shedTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/platform_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/platform_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/shed_to_truck_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Shed To Truck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/platform_to_shed_labTV" />
+
+            <TextView
+                android:id="@+id/shed_to_truckTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_platform_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Truck To Platform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shed_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_platformTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_platform_labTV" />
+
+            <TextView
+                android:id="@+id/shed_to_wagon_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Shed To Wagon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_platform_labTV" />
+
+            <TextView
+                android:id="@+id/shed_to_wagonTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_wagon_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_labTV" />
+
+            <TextView
+                android:id="@+id/wagon_to_truck_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Wagon To Truck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shed_to_wagon_labTV" />
+
+            <TextView
+                android:id="@+id/wagon_to_truckTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/refilling_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Refilling"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/refillingTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/refilling_labTV"
+                app:layout_constraintStart_toEndOf="@+id/refilling_labTV" />
+
+            <TextView
+                android:id="@+id/restacking_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Restacking"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/refilling_labTV" />
+
+            <TextView
+                android:id="@+id/restackingTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/restacking_labTV"
+                app:layout_constraintStart_toEndOf="@+id/restacking_labTV" />
+
+            <TextView
+                android:id="@+id/weightment_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Weightment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restacking_labTV" />
+
+            <TextView
+                android:id="@+id/weightmentTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/weightment_labTV"
+                app:layout_constraintStart_toEndOf="@+id/weightment_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_truck_labTV"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Truck To Truck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightment_labTV" />
+
+            <TextView
+                android:id="@+id/truck_to_truckTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/upper_basic_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:text="Basic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/old_basic_labTV" />
+
+            <TextView
+                android:id="@+id/upper_basicTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="1176.923"
+                app:layout_constraintBaseline_toBaselineOf="@+id/upper_basic_labTV"
+                app:layout_constraintStart_toEndOf="@+id/upper_basic_labTV" />
+
+            <TextView
+                android:id="@+id/upper_da_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="DA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upper_basic_labTV" />
+
+            <TextView
+                android:id="@+id/upper_daTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="934.599"
+                app:layout_constraintBaseline_toBaselineOf="@+id/upper_da_labTV"
+                app:layout_constraintStart_toEndOf="@+id/upper_da_labTV" />
+
+            <TextView
+                android:id="@+id/upper_hra_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="HRA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upper_da_labTV" />
+
+            <TextView
+                android:id="@+id/upper_hraTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="301.808"
+                app:layout_constraintBaseline_toBaselineOf="@+id/upper_hra_labTV"
+                app:layout_constraintStart_toEndOf="@+id/upper_hra_labTV" />
+
+            <TextView
+                android:id="@+id/upper_per_day_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="Per Day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upper_hra_labTV" />
+
+            <TextView
+                android:id="@+id/upper_per_dayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="2413.331"
+                app:layout_constraintBaseline_toBaselineOf="@+id/upper_per_day_labTV"
+                app:layout_constraintStart_toEndOf="@+id/upper_per_day_labTV" />
+
+
+            <TextView
+                android:id="@+id/upper_per_bag_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="Per Bag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/upper_per_day_labTV" />
+
+
+
+            <TextView
+                android:id="@+id/upper_per_bagTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="17.887"
+                app:layout_constraintBaseline_toBaselineOf="@+id/upper_per_bag_labTV"
+                app:layout_constraintStart_toEndOf="@+id/upper_per_bag_labTV" />
+
+            <TextView
+                android:id="@+id/lower_basic_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:text="Basic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_basic_labTV" />
+
+            <TextView
+                android:id="@+id/lower_basicTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="1176.923"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lower_basic_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lower_basic_labTV" />
+
+
+            <TextView
+                android:id="@+id/lower_da_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="DA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lower_basic_labTV" />
+
+            <TextView
+                android:id="@+id/lower_daTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="934.599"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lower_da_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lower_da_labTV" />
+
+            <TextView
+                android:id="@+id/lower_hra_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="HRA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lower_da_labTV" />
+
+            <TextView
+                android:id="@+id/lower_hraTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="301.808"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lower_hra_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lower_hra_labTV" />
+
+
+            <TextView
+                android:id="@+id/lower_per_day_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="Per Day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lower_hra_labTV" />
+
+            <TextView
+                android:id="@+id/lower_per_dayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                tools:text="2413.331"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lower_per_day_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lower_per_day_labTV" />
+
+
+            <TextView
+                android:id="@+id/lower_per_hour_labTV"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="Per Hour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lower_per_day_labTV" />
+
+
+
+            <TextView
+                android:id="@+id/lower_per_hourTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="TextView"
+                tools:text="17.887"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lower_per_hour_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lower_per_hour_labTV" />
+
+            <View
+                android:id="@+id/divider_second"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lower_per_hour_labTV" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/updateBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old Basic"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/old_basic_card_view"
-        app:layout_constraintStart_toStartOf="@id/old_basic_card_view"
-        app:layout_constraintTop_toBottomOf="@id/old_basic_card_view" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/old_da_card_view"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/old_basic_card_view"
-        app:layout_constraintStart_toEndOf="@+id/old_basic_card_view"
-        app:layout_constraintTop_toTopOf="@+id/old_basic_card_view">
-
-        <EditText
-            android:id="@+id/old_daET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            tools:text="92.9" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/old_da_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old DA %"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/old_da_card_view"
-        app:layout_constraintStart_toStartOf="@+id/old_da_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/old_da_card_view" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/old_hra_card_view"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/old_da_card_view"
-        app:layout_constraintStart_toEndOf="@+id/old_da_card_view"
-        app:layout_constraintTop_toTopOf="@+id/old_da_card_view">
-
-        <EditText
-            android:id="@+id/old_hraET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            tools:text="30" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/old_hra_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old HRA"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/old_hra_card_view"
-        app:layout_constraintStart_toStartOf="@+id/old_hra_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/old_hra_card_view" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/days_card_view"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/old_hra_card_view"
-        app:layout_constraintStart_toEndOf="@+id/old_hra_card_view"
-        app:layout_constraintTop_toTopOf="@+id/old_hra_card_view">
-
-        <EditText
-            android:id="@+id/daysET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            tools:text="365" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/days_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Days"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/days_card_view"
-        app:layout_constraintStart_toStartOf="@+id/days_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/days_card_view" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/new_basic_card_view"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upper_per_bag_labTV">
-
-
-        <EditText
-            android:id="@+id/new_basicET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="48100" />
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/new_basic_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old Basic"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/new_basic_card_view"
-        app:layout_constraintStart_toStartOf="@id/new_basic_card_view"
-        app:layout_constraintTop_toBottomOf="@id/new_basic_card_view" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/new_da_card_view"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/new_basic_card_view"
-        app:layout_constraintStart_toEndOf="@+id/new_basic_card_view"
-        app:layout_constraintTop_toTopOf="@+id/new_basic_card_view">
-
-        <EditText
-            android:id="@+id/new_daET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            tools:text="37.9" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/new_da_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old DA %"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/new_da_card_view"
-        app:layout_constraintStart_toStartOf="@+id/new_da_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/new_da_card_view" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/new_hra_card_view"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/new_da_card_view"
-        app:layout_constraintStart_toEndOf="@+id/new_da_card_view"
-        app:layout_constraintTop_toTopOf="@+id/new_da_card_view">
-
-        <EditText
-            android:id="@+id/new_hraET"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/floating_bg"
-            android:editable="false"
-            android:padding="2dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            tools:text="27" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/new_hra_labTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Old HRA"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/new_hra_card_view"
-        app:layout_constraintStart_toStartOf="@+id/new_hra_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/new_hra_card_view" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Owner Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/wagon_to_shed_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Wagon To Shed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/truck_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/wagon_to_shedTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_shed_labTV"
-        app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_shedTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_shed_labTV"
-        app:layout_constraintStart_toEndOf="@+id/truck_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_shed_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="400dp"
-        android:text="Truck To Shed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/wagon_to_platform_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Wagon To Platform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wagon_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/wagon_to_platformTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_platform_labTV"
-        app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_labTV" />
-
-    <TextView
-        android:id="@+id/platform_to_shed_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Platform To Shed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wagon_to_platform_labTV" />
-
-    <TextView
-        android:id="@+id/platform_to_shedTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/platform_to_shed_labTV"
-        app:layout_constraintStart_toEndOf="@+id/platform_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/shed_to_truck_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Shed To Truck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/platform_to_shed_labTV" />
-
-    <TextView
-        android:id="@+id/shed_to_truckTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_truck_labTV"
-        app:layout_constraintStart_toEndOf="@+id/shed_to_truck_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_platform_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Truck To Platform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shed_to_truck_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_platformTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_platform_labTV"
-        app:layout_constraintStart_toEndOf="@+id/truck_to_platform_labTV" />
-
-    <TextView
-        android:id="@+id/shed_to_wagon_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Shed To Wagon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/truck_to_platform_labTV" />
-
-    <TextView
-        android:id="@+id/shed_to_wagonTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_wagon_labTV"
-        app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_labTV" />
-
-    <TextView
-        android:id="@+id/wagon_to_truck_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Wagon To Truck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shed_to_wagon_labTV" />
-
-    <TextView
-        android:id="@+id/wagon_to_truckTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_truck_labTV"
-        app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_labTV" />
-
-    <TextView
-        android:id="@+id/refilling_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Refilling"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wagon_to_truck_labTV" />
-
-    <TextView
-        android:id="@+id/refillingTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/refilling_labTV"
-        app:layout_constraintStart_toEndOf="@+id/refilling_labTV" />
-
-    <TextView
-        android:id="@+id/restacking_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Restacking"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/refilling_labTV" />
-
-    <TextView
-        android:id="@+id/restackingTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/restacking_labTV"
-        app:layout_constraintStart_toEndOf="@+id/restacking_labTV" />
-
-    <TextView
-        android:id="@+id/weightment_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Weightment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restacking_labTV" />
-
-    <TextView
-        android:id="@+id/weightmentTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/weightment_labTV"
-        app:layout_constraintStart_toEndOf="@+id/weightment_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_truck_labTV"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Truck To Truck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightment_labTV" />
-
-    <TextView
-        android:id="@+id/truck_to_truckTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_truck_labTV"
-        app:layout_constraintStart_toEndOf="@+id/truck_to_truck_labTV" />
-
-    <TextView
-        android:id="@+id/upper_basic_labTV"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Basic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/old_basic_labTV" />
-
-    <TextView
-        android:id="@+id/upper_da_labTV"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="DA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upper_basic_labTV" />
-
-    <TextView
-        android:id="@+id/upper_hra_labTV"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="HRA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upper_da_labTV" />
-
-    <TextView
-        android:id="@+id/upper_per_day_labTV"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Per Day"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upper_hra_labTV" />
-
-    <TextView
-        android:id="@+id/upper_per_bag_labTV"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Per Bag"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upper_per_day_labTV" />
-
-    <TextView
-        android:id="@+id/upper_basicTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        tools:text="1176.923"
-        app:layout_constraintBaseline_toBaselineOf="@+id/upper_basic_labTV"
-        app:layout_constraintStart_toEndOf="@+id/upper_basic_labTV" />
-
-    <TextView
-        android:id="@+id/upper_daTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        tools:text="934.599"
-        app:layout_constraintBaseline_toBaselineOf="@+id/upper_da_labTV"
-        app:layout_constraintStart_toEndOf="@+id/upper_da_labTV" />
-
-    <TextView
-        android:id="@+id/upper_hraTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        tools:text="301.808"
-        app:layout_constraintBaseline_toBaselineOf="@+id/upper_hra_labTV"
-        app:layout_constraintStart_toEndOf="@+id/upper_hra_labTV" />
-
-    <TextView
-        android:id="@+id/upper_per_dayTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        tools:text="2413.331"
-        app:layout_constraintBaseline_toBaselineOf="@+id/upper_per_day_labTV"
-        app:layout_constraintStart_toEndOf="@+id/upper_per_day_labTV" />
-
-    <TextView
-        android:id="@+id/upper_per_bagTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        tools:text="17.887"
-        app:layout_constraintBaseline_toBaselineOf="@+id/upper_per_bag_labTV"
-        app:layout_constraintStart_toEndOf="@+id/upper_per_bag_labTV" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Update"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

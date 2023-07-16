@@ -22,6 +22,14 @@ class RateFragment : Fragment() {
 
         binding.textView.text = RnN.Owner
 
+        binding.oldBasicET.isEnabled = false
+        binding.oldDaET.isEnabled = false
+        binding.oldHraET.isEnabled = false
+        binding.daysET.isEnabled = false
+        binding.newBasicET.isEnabled = false
+        binding.newDaET.isEnabled = false
+        binding.newHraET.isEnabled = false
+
         binding.truckToShedTV.text = RnN.TruckToShed.toString()
         binding.wagonToShedTV.text = RnN.WagonToShed.toString()
         binding.wagonToPlatformTV.text = RnN.WagonToPlatform.toString()
@@ -40,15 +48,65 @@ class RateFragment : Fragment() {
         binding.oldHraET.setText(RnN.OldHRA.toString())
         binding.daysET.setText(RnN.Days.toString())
 
+
+        binding.newBasicET.setText(String.format("%.0f", RnN.NewBasic))
+        binding.newDaET.setText(RnN.NewDA.toString())
+        binding.newHraET.setText(RnN.NewHRA.toString())
+
+        calculateDerivedValues()
+
+        binding.updateBT.setOnClickListener {
+            editRates()
+        }
+
+        return view
+    }
+    //Set all EditTexts to editable = true
+    //Change Update button text to 'Save'
+    //Once user hits save, update the values in RnN
+    //Set all EditTexts to editable = false
+    //Change Update button text to 'Update'
+    //Calculate derived values
+    private fun editRates() {
+        if (binding.updateBT.text == "Update") {
+            binding.oldBasicET.isEnabled = true
+            binding.oldDaET.isEnabled = true
+            binding.oldHraET.isEnabled = true
+            binding.daysET.isEnabled = true
+            binding.newBasicET.isEnabled = true
+            binding.newDaET.isEnabled = true
+            binding.newHraET.isEnabled = true
+            binding.updateBT.text = "Save"
+        } else if (binding.updateBT.text == "Save") {
+            binding.oldBasicET.isEnabled = false
+            binding.oldDaET.isEnabled = false
+            binding.oldHraET.isEnabled = false
+            binding.daysET.isEnabled = false
+            binding.newBasicET.isEnabled = false
+            binding.newDaET.isEnabled = false
+            binding.newHraET.isEnabled = false
+            binding.updateBT.text = "Update"
+            updateRates()
+            calculateDerivedValues()
+        }
+    }
+
+    private fun updateRates() {
+        RnN.OldBasic = binding.oldBasicET.text.toString().toDouble()
+        RnN.OldDA = binding.oldDaET.text.toString().toDouble()
+        RnN.OldHRA = binding.oldHraET.text.toString().toDouble()
+        RnN.Days = binding.daysET.text.toString().toInt()
+        RnN.NewBasic = binding.newBasicET.text.toString().toDouble()
+        RnN.NewDA = binding.newDaET.text.toString().toDouble()
+        RnN.NewHRA = binding.newHraET.text.toString().toDouble()
+    }
+
+    fun calculateDerivedValues() {
         val oldBasic = RnN.OldBasic
         val oldDA = RnN.OldDA
         val oldHRA = RnN.OldHRA
         val days = RnN.Days
         val norms = RnN.TruckToShed
-
-        fun Double.roundToTwoDecimalPlaces(): Double {
-            return String.format("%.2f", this).toDouble()
-        }
 
         val perDayBasic = (oldBasic / 26).roundToTwoDecimalPlaces()
         val perDayDA = ((oldBasic * (oldDA / 100) * 12) / days).roundToTwoDecimalPlaces()
@@ -63,13 +121,26 @@ class RateFragment : Fragment() {
         binding.upperPerDayTV.text = perDayTotal.toString()
         binding.upperPerBagTV.text = perDayBags.toString()
 
+        val newBasic = RnN.NewBasic
+        val newDA = RnN.NewDA
+        val newHRA = RnN.NewHRA
 
-        binding.newBasicET.setText(String.format("%.0f", RnN.NewBasic))
-        binding.newDaET.setText(RnN.NewDA.toString())
-        binding.newHraET.setText(RnN.NewHRA.toString())
+        val perDayBasicNew = (newBasic / 26).roundToTwoDecimalPlaces()
+        val perDayDANew = ((newBasic * (newDA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        val perDayHRANew = ((newBasic * (newHRA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        val perDayTotalNew = (perDayBasicNew + perDayDANew + perDayHRANew).roundToTwoDecimalPlaces()
+        val perHourTotal = ((perDayTotalNew / 7)*1.1).roundToTwoDecimalPlaces()
 
+        binding.lowerBasicTV.text = perDayBasicNew.toString()
+        binding.lowerDaTV.text = perDayDANew.toString()
+        binding.lowerHraTV.text = perDayHRANew.toString()
+        binding.lowerPerDayTV.text = perDayTotalNew.toString()
+        binding.lowerPerHourTV.text = perHourTotal.toString()
 
-        return view
+    }
+
+    fun Double.roundToTwoDecimalPlaces(): Double {
+        return String.format("%.2f", this).toDouble()
     }
 
 }

@@ -180,14 +180,14 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val endTime = binding.endTimeET.text.toString()
 
         if (binding.weekdaySwitch.isChecked) {
-            val timeDiff = calculateTimeDifference(startTime, endTime) - 0.5
+            val timeDiff = calculateTimeDifference(startTime, endTime) - RnN.lunchHours
 //            Toast.makeText(context, "holiday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
                 overTimeHours = timeDiff
                 updateOverTimeInUI(timeDiff)
             }
         } else {
-            val timeDiff = calculateTimeDifference(startTime, endTime) - 7.5
+            val timeDiff = calculateTimeDifference(startTime, endTime) - (RnN.workingHours + RnN.lunchHours)
 //            Toast.makeText(context, "workday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
                 overTimeHours = timeDiff
