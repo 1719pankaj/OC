@@ -8,7 +8,6 @@
     tools:context=".fragment.CalcFragment">
 
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -110,8 +109,8 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
-        app:layout_constraintTop_toBottomOf="@id/shed_number_card_view"
         app:layout_constraintStart_toEndOf="@id/start_time_card_view"
+        app:layout_constraintTop_toBottomOf="@id/shed_number_card_view"
         tools:layout_editor_absoluteY="98dp">
 
         <TextView
@@ -131,7 +130,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.cardview.widget.CardView>
-
 
 
     <View
@@ -191,8 +189,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/head_count_card_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/head_count_card_view" />
-
-
 
 
     <TextView
@@ -515,7 +511,7 @@
         android:id="@+id/shed_to_truck_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/shed_to_truck_card_view"
@@ -528,7 +524,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -584,7 +580,7 @@
         android:id="@+id/truck_to_platform_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/truck_to_platform_card_view"
@@ -597,7 +593,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -653,7 +649,7 @@
         android:id="@+id/shed_to_wagon_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/shed_to_wagon_card_view"
@@ -666,7 +662,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -722,7 +718,7 @@
         android:id="@+id/wagon_to_truck_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/wagon_to_truck_card_view"
@@ -735,7 +731,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -831,7 +827,7 @@
         android:id="@+id/restacking_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/restacking_card_view"
@@ -844,7 +840,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -940,7 +936,7 @@
         android:id="@+id/truck_to_truck_oow_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="12dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/truck_to_truck_card_view"
@@ -953,7 +949,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/floating_bg"
-            android:hint="Bags"
+            android:hint="O/W"
             android:inputType="date"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -969,20 +965,21 @@
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
         android:layout_margin="16dp"
+        android:text="Reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
+    <CheckBox
         android:id="@+id/weekday_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:text="Workday"
         app:layout_constraintBottom_toBottomOf="@+id/end_time_card_view"
         app:layout_constraintStart_toEndOf="@+id/end_time_card_view"
-        app:layout_constraintTop_toTopOf="@+id/end_time_card_view" />
+        app:layout_constraintTop_toTopOf="@+id/end_time_card_view"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

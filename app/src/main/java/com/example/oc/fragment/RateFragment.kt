@@ -35,6 +35,39 @@ class RateFragment : Fragment() {
         binding.weightmentTV.text = RnN.Weightment.toString()
         binding.truckToTruckTV.text = RnN.TruckToTruck.toString()
 
+        binding.oldBasicET.setText(String.format("%.0f", RnN.OldBasic))
+        binding.oldDaET.setText(RnN.OldDA.toString())
+        binding.oldHraET.setText(RnN.OldHRA.toString())
+        binding.daysET.setText(RnN.Days.toString())
+
+        val oldBasic = RnN.OldBasic
+        val oldDA = RnN.OldDA
+        val oldHRA = RnN.OldHRA
+        val days = RnN.Days
+        val norms = RnN.TruckToShed
+
+        fun Double.roundToTwoDecimalPlaces(): Double {
+            return String.format("%.2f", this).toDouble()
+        }
+
+        val perDayBasic = (oldBasic / 26).roundToTwoDecimalPlaces()
+        val perDayDA = ((oldBasic * (oldDA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        val perDayHRA = ((oldBasic * (oldHRA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        val perDayTotal = (perDayBasic + perDayDA + perDayHRA).roundToTwoDecimalPlaces()
+        val perDayBags = (perDayTotal / norms).roundToTwoDecimalPlaces()
+
+
+        binding.upperBasicTV.text = perDayBasic.toString()
+        binding.upperDaTV.text = perDayDA.toString()
+        binding.upperHraTV.text = perDayHRA.toString()
+        binding.upperPerDayTV.text = perDayTotal.toString()
+        binding.upperPerBagTV.text = perDayBags.toString()
+
+
+        binding.newBasicET.setText(String.format("%.0f", RnN.NewBasic))
+        binding.newDaET.setText(RnN.NewDA.toString())
+        binding.newHraET.setText(RnN.NewHRA.toString())
+
 
         return view
     }

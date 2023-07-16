@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.oc.MainActivity
@@ -17,8 +18,10 @@ import com.example.oc.R
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
 import com.example.oc.databinding.FragmentMainBinding
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 
@@ -28,6 +31,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
     private val binding get() = _binding!!
 
+    private var overTimeHours = 0.0
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -36,6 +41,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.reset.setOnClickListener {
             resetEditTexts(binding.frameLayout2)
         }
+
+
 
         binding.dateET.setOnClickListener {
             val currentDate = Calendar.getInstance()
@@ -47,16 +54,58 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             datePickerDialog.show()
         }
 
-        binding.startTimeCardView.setOnClickListener {
+
+
+        binding.startTimeET.setOnClickListener {
             showTimePickerDialog(binding.startTimeET)
         }
 
-        binding.endTimeCardView.setOnClickListener {
+
+
+        binding.endTimeET.setOnClickListener {
             showTimePickerDialog(binding.endTimeET)
         }
 
 
+
+        binding.weekdaySwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
+            val startTime = binding.startTimeET.text.toString()
+            val endTime = binding.endTimeET.text.toString()
+
+            if (startTime.isNotEmpty() && endTime.isNotEmpty()) {
+                updateOvertime()
+            }
+
+            val switchText = if (isChecked) "Holiday" else "Workday"
+            binding.weekdaySwitch.text = switchText
+        }
+
+
+
+        setDefaults()
+
         return view
+    }
+
+    private fun setDefaults() {
+        val defaultStartTime = format12Hour(10, 0)
+        binding.startTimeET.setText(defaultStartTime)
+
+        val deafultEndTime = format12Hour(17, 30)
+        binding.endTimeET.setText(deafultEndTime)
+
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val currentDate = sdf.format(Date())
+        binding.dateET.text = currentDate
+
+        val calendar = Calendar.getInstance()
+        calendar.time = sdf.parse(currentDate)
+
+        if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            binding.weekdaySwitch.setChecked(true)
+        }
+        updateOvertime()
+
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -64,6 +113,20 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val formattedMonth = month + 1
         val selectedDate = "$dayOfMonth/$formattedMonth/$year"
         binding.dateET.setText(selectedDate)
+
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val calendar = Calendar.getInstance()
+        calendar.time = sdf.parse(selectedDate)
+
+        if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            binding.weekdaySwitch.setChecked(true)
+            updateOvertime()
+        } else {
+            binding.weekdaySwitch.setChecked(false)
+            updateOvertime()
+        }
+
+
     }
 
     private fun showTimePickerDialog(textView: TextView) {
@@ -80,11 +143,9 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 val startTime = binding.startTimeET.text.toString()
                 val endTime = binding.endTimeET.text.toString()
 
-                if (startTime != "" && endTime != "") {
-                    val timeDiff = calculateTimeDifference(startTime, endTime) - 7.5
-                    if (timeDiff > 0)
-                        binding.overTimeHoursTV.text = timeDiff.toString()
-                }
+                if (startTime != "" && endTime != "")
+                    updateOvertime()
+
             },
             currentHour,
             currentMinute,
@@ -113,6 +174,47 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         return minutes / 60.0f
     }
 
+    private fun updateOvertime() {
+
+        val startTime = binding.startTimeET.text.toString()
+        val endTime = binding.endTimeET.text.toString()
+
+        if (binding.weekdaySwitch.isChecked) {
+            val timeDiff = calculateTimeDifference(startTime, endTime) - 0.5
+//            Toast.makeText(context, "holiday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
+            if (timeDiff >= 0) {
+                overTimeHours = timeDiff
+                updateOverTimeInUI(timeDiff)
+            }
+        } else {
+            val timeDiff = calculateTimeDifference(startTime, endTime) - 7.5
+//            Toast.makeText(context, "workday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
+            if (timeDiff >= 0) {
+                overTimeHours = timeDiff
+                updateOverTimeInUI(timeDiff)
+            }
+
+        }
+    }
+
+
+
+    fun updateOverTimeInUI(overTime: Double) {
+        val formattedOverTime = formatHoursMinutes(overTime)
+        binding.overTimeHoursTV.text = formattedOverTime
+    }
+
+    fun formatHoursMinutes(hours: Double): String {
+        val wholeHours = hours.toInt()
+        val minutes = ((hours - wholeHours) * 60).toInt()
+
+        val decimalFormat = DecimalFormat("00")
+        val formattedHours = decimalFormat.format(wholeHours)
+        val formattedMinutes = decimalFormat.format(minutes)
+
+        return "$formattedHours:$formattedMinutes"
+    }
+
 
 
 
@@ -130,7 +232,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 }
             }
         }
-        binding.dateET.text = null
+        setDefaults()
     }
 
 
