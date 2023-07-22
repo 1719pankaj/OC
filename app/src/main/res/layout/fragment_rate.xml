@@ -20,16 +20,29 @@
             tools:context=".fragment.RateFragment">
 
 
+            <TextView
+                android:id="@+id/old_basic_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="OLD RATE"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/old_basic_card_view"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/old_basic_titleTV">
 
 
                 <EditText
@@ -183,16 +196,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/upper_per_bag_labTV" />
 
+            <TextView
+                android:id="@+id/new_basic_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="NEW RATE"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_first" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/new_basic_card_view"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_first">
+                app:layout_constraintTop_toBottomOf="@+id/new_basic_titleTV">
 
 
                 <EditText
@@ -341,10 +366,10 @@
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Truck To Shed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_second" />
+                app:layout_constraintTop_toBottomOf="@id/norms_titleTV" />
 
             <TextView
                 android:id="@+id/wagon_to_platform_labTV"
@@ -753,6 +778,238 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/lower_per_hour_labTV" />
+
+            <TextView
+                android:id="@+id/height_rate_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="HEIGHT RATE"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_second" />
+
+            <TextView
+                android:id="@+id/height_11_12_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="11-12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_rate_titleTV" />
+
+            <TextView
+                android:id="@+id/height_11_12TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/height_11_12_labTV"
+                app:layout_constraintStart_toEndOf="@+id/height_11_12_labTV" />
+
+            <TextView
+                android:id="@+id/height_13_14_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="13-14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_11_12_labTV" />
+
+            <TextView
+                android:id="@+id/height_13_14TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/height_13_14_labTV"
+                app:layout_constraintStart_toEndOf="@+id/height_13_14_labTV" />
+
+            <TextView
+                android:id="@+id/height_15_16_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="15-16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_13_14_labTV" />
+
+            <TextView
+                android:id="@+id/height_15_16TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/height_15_16_labTV"
+                app:layout_constraintStart_toEndOf="@+id/height_15_16_labTV" />
+
+            <TextView
+                android:id="@+id/height_17_18_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="17-18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_15_16_labTV" />
+
+            <TextView
+                android:id="@+id/height_17_18TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/height_17_18_labTV"
+                app:layout_constraintStart_toEndOf="@+id/height_17_18_labTV" />
+
+            <TextView
+                android:id="@+id/height_19_20_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="19-20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/height_17_18_labTV" />
+
+            <TextView
+                android:id="@+id/height_19_20TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/height_19_20_labTV"
+                app:layout_constraintStart_toEndOf="@+id/height_19_20_labTV" />
+
+
+            <View
+                android:id="@+id/divider_third"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/height_19_20_labTV" />
+
+
+            <TextView
+                android:id="@+id/lead_rate_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="LEAD"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_third" />
+
+            <TextView
+                android:id="@+id/lead_66_99_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="66-99"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lead_rate_titleTV" />
+
+            <TextView
+                android:id="@+id/lead_66_99TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lead_66_99_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lead_66_99_labTV" />
+
+            <TextView
+                android:id="@+id/lead_100_132_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="100-132"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lead_66_99_labTV" />
+
+            <TextView
+                android:id="@+id/lead_100_132TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lead_100_132_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lead_100_132_labTV" />
+
+            <TextView
+                android:id="@+id/lead_133_165_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="133-165"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lead_100_132_labTV" />
+
+            <TextView
+                android:id="@+id/lead_133_165TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lead_133_165_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lead_133_165_labTV" />
+
+            <TextView
+                android:id="@+id/lead_165_and_above_labTV"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="165+"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lead_133_165_labTV" />
+
+            <TextView
+                android:id="@+id/lead_165_and_aboveTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lead_165_and_above_labTV"
+                app:layout_constraintStart_toEndOf="@+id/lead_165_and_above_labTV" />
+
+
+            <View
+                android:id="@+id/divider_fourth"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lead_165_and_above_labTV" />
+
+            <TextView
+                android:id="@+id/norms_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="NORMS"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_fourth" />
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

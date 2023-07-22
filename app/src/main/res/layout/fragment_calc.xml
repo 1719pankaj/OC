@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -193,7 +205,7 @@
 
     <TextView
         android:id="@+id/truck_to_shed_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -261,8 +273,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/truck_to_shed_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/truck_to_shed_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_shed_labTV" />
+
+    <TextView
         android:id="@+id/wagon_to_shed_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -330,8 +353,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/wagon_to_shed_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_shed_labTV" />
+
+    <TextView
         android:id="@+id/wagon_to_platform_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -399,8 +433,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/wagon_to_platform_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_platform_labTV" />
+
+    <TextView
         android:id="@+id/platform_to_shed_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -468,8 +513,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/platform_to_shed_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/platform_to_shed_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/platform_to_shed_labTV" />
+
+    <TextView
         android:id="@+id/shed_to_truck_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -537,8 +593,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/shed_to_truck_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/shed_to_truck_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_truck_labTV" />
+
+    <TextView
         android:id="@+id/truck_to_platform_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -606,8 +673,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/truck_to_platform_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/truck_to_platform_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_platform_labTV" />
+
+    <TextView
         android:id="@+id/shed_to_wagon_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -675,8 +753,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/shed_to_wagon_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_wagon_labTV" />
+
+    <TextView
         android:id="@+id/wagon_to_truck_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -744,8 +833,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/wagon_to_truck_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_truck_labTV" />
+
+    <TextView
         android:id="@+id/refilling_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -784,8 +884,21 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/refilling_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/refilling_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/refilling_labTV" />
+
+
+
+    <TextView
         android:id="@+id/restacking_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -853,8 +966,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/restacking_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/restacking_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/restacking_labTV" />
+
+    <TextView
         android:id="@+id/weightment_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -893,8 +1017,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/weightment_totalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/weightment_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/weightment_labTV" />
+
+    <TextView
         android:id="@+id/truck_to_truck_labTV"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -961,14 +1096,17 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/reset"
+    <TextView
+        android:id="@+id/truck_to_truck_totalTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/truck_to_truck_oow_card_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_truck_labTV" />
+
 
     <CheckBox
         android:id="@+id/weekday_switch"
@@ -982,4 +1120,29 @@
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginTop="800dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/truck_to_truck_labTV" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Reset"
+        android:layout_gravity="bottom|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

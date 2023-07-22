@@ -29,6 +29,17 @@ class RnN {
         var NewDA: Double = 37.9
         var NewHRA: Double = 27.0
 
+        var H11_12: Double = 1.498
+        var H13_14: Double = 3.744
+        var H15_16: Double = 4.493
+        var H17_18: Double = 5.991
+        var H19_20: Double = 7.489
+
+        var L66_99: Double = 2.247
+        var L100_132: Double = 4.493
+        var L133_165: Double = 7.489
+        var L165Av: Double = 14.978
+
 
     }
 }

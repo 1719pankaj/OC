@@ -55,6 +55,17 @@ class RateFragment : Fragment() {
 
         calculateDerivedValues()
 
+        binding.height1112TV.text = RnN.H11_12.toString()
+        binding.height1314TV.text = RnN.H13_14.toString()
+        binding.height1516TV.text = RnN.H15_16.toString()
+        binding.height1718TV.text = RnN.H17_18.toString()
+        binding.height1920TV.text = RnN.H19_20.toString()
+
+        binding.lead6699TV.text = RnN.L66_99.toString()
+        binding.lead100132TV.text = RnN.L100_132.toString()
+        binding.lead133165TV.text = RnN.L133_165.toString()
+        binding.lead165AndAboveTV.text = RnN.L165Av.toString()
+
         binding.updateBT.setOnClickListener {
             editRates()
         }
@@ -120,6 +131,7 @@ class RateFragment : Fragment() {
         binding.upperHraTV.text = perDayHRA.toString()
         binding.upperPerDayTV.text = perDayTotal.toString()
         binding.upperPerBagTV.text = perDayBags.toString()
+
 
         val newBasic = RnN.NewBasic
         val newDA = RnN.NewDA

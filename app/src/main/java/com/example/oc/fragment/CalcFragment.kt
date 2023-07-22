@@ -38,8 +38,12 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val view = binding.root
 
         binding.textView.text = RnN.Owner
+
         binding.reset.setOnClickListener {
+            Toast.makeText(context, "reset", Toast.LENGTH_SHORT).show()
             resetEditTexts(binding.frameLayout2)
+            setDefaults()
+            setWeekdayCheck()
         }
 
 
@@ -114,19 +118,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val selectedDate = "$dayOfMonth/$formattedMonth/$year"
         binding.dateET.setText(selectedDate)
 
-        val sdf = SimpleDateFormat("dd/M/yyyy")
-        val calendar = Calendar.getInstance()
-        calendar.time = sdf.parse(selectedDate)
-
-        if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            binding.weekdaySwitch.setChecked(true)
-            updateOvertime()
-        } else {
-            binding.weekdaySwitch.setChecked(false)
-            updateOvertime()
-        }
-
-
+        setWeekdayCheck()
     }
 
     private fun showTimePickerDialog(textView: TextView) {
@@ -232,8 +224,27 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 }
             }
         }
-        setDefaults()
+
     }
+
+    fun setWeekdayCheck() {
+
+        val date = binding.dateET.text
+
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val calendar = Calendar.getInstance()
+        calendar.time = sdf.parse(date.toString()) as Date
+
+        if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            binding.weekdaySwitch.setChecked(true)
+            updateOvertime()
+        } else {
+            binding.weekdaySwitch.setChecked(false)
+            updateOvertime()
+        }
+    }
+
+
 
 
 }
