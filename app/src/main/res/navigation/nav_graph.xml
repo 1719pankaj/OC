@@ -27,6 +27,11 @@
             app:destination="@id/mainFragment"
             app:popUpTo="@id/splashFragment2"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment2_to_itsMyFirstTime"
+            app:destination="@id/itsMyFirstTime"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/rateFragment"
@@ -41,6 +46,17 @@
         <action
             android:id="@+id/action_calcFragment_to_rateFragment"
             app:destination="@id/rateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itsMyFirstTime"
+        android:name="com.example.oc.fragment.ItsMyFirstTime"
+        android:label="fragment_its_my_first_time"
+        tools:layout="@layout/fragment_its_my_first_time" >
+        <action
+            android:id="@+id/action_itsMyFirstTime_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/itsMyFirstTime"
+            app:popUpToInclusive="true" />
     </fragment>
 
 

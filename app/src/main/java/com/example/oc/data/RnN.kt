@@ -3,10 +3,13 @@ package com.example.oc.data
 class RnN {
     companion object {
         var Owner: String = "MTL"
+        var MaalkiKaNumber: String = "9883293901"
+        var FirstTime: Boolean = true
 
         var workingHours: Double = 7.0
         var lunchHours: Double = 0.5
 
+        var DailyNorms: Int = 135
         var TruckToShed: Int = 135
         var WagonToShed: Int = 115
         var WagonToPlatform: Int = 170

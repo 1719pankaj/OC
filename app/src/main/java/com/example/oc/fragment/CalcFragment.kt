@@ -13,11 +13,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.oc.MainActivity
-import com.example.oc.R
+import androidx.core.widget.addTextChangedListener
+import com.example.oc.calculators.EquivalentBags
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
-import com.example.oc.databinding.FragmentMainBinding
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -84,9 +83,102 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             binding.weekdaySwitch.text = switchText
         }
 
-
-
         setDefaults()
+
+
+        //add text changed listener to all edit texts
+        //if any of them is empty, set overtime to 0
+        //else, calculate overtime
+
+        //Truck to Shed
+        binding.truckToShedTV.addTextChangedListener {
+            EquivalentBags.truckToShedCalc(binding)
+        }
+        binding.truckToShedOowTV.addTextChangedListener {
+            EquivalentBags.truckToShedCalc(binding)
+        }
+
+        //Wagon to Shed
+        binding.wagonToShedTV.addTextChangedListener {
+            EquivalentBags.wagonToShedCalc(binding)
+        }
+        binding.wagonToShedOowTV.addTextChangedListener {
+            EquivalentBags.wagonToShedCalc(binding)
+        }
+
+        //Wagon to Platform
+        binding.wagonToPlatformTV.addTextChangedListener {
+            EquivalentBags.wagonToPlatformCalc(binding)
+        }
+        binding.wagonToPlatformOowTV.addTextChangedListener {
+            EquivalentBags.wagonToPlatformCalc(binding)
+        }
+
+        //Platform to Shed
+        binding.platformToShedTV.addTextChangedListener {
+            EquivalentBags.platformToShedCalc(binding)
+        }
+        binding.platformToShedOowTV.addTextChangedListener {
+            EquivalentBags.platformToShedCalc(binding)
+        }
+
+        //Shed to Truck
+        binding.shedToTruckTV.addTextChangedListener {
+            EquivalentBags.shedToTruckCalc(binding)
+        }
+        binding.shedToTruckOowTV.addTextChangedListener {
+            EquivalentBags.shedToTruckCalc(binding)
+        }
+
+        //Truck to Platform
+        binding.truckToPlatformTV.addTextChangedListener {
+            EquivalentBags.truckToPlatformCalc(binding)
+        }
+        binding.truckToPlatformOowTV.addTextChangedListener {
+            EquivalentBags.truckToPlatformCalc(binding)
+        }
+
+        //Shed to Wagon
+        binding.shedToWagonTV.addTextChangedListener {
+            EquivalentBags.shedToWagonCalc(binding)
+        }
+        binding.shedToWagonOowTV.addTextChangedListener {
+            EquivalentBags.shedToWagonCalc(binding)
+        }
+
+        //Wagon to Truck
+        binding.wagonToTruckTV.addTextChangedListener {
+            EquivalentBags.wagonToTruckCalc(binding)
+        }
+        binding.wagonToTruckOowTV.addTextChangedListener {
+            EquivalentBags.wagonToTruckCalc(binding)
+        }
+
+        //Refilling
+        binding.refillingTV.addTextChangedListener {
+            EquivalentBags.refillingCalc(binding)
+        }
+
+        //Restacking
+        binding.restackingTV.addTextChangedListener {
+            EquivalentBags.restackingCalc(binding)
+        }
+        binding.restackingOowTV.addTextChangedListener {
+            EquivalentBags.restackingCalc(binding)
+        }
+
+        //Weightment
+        binding.weightmentTV.addTextChangedListener {
+            EquivalentBags.weightmentCalc(binding)
+        }
+
+        //Truck to Truck
+        binding.truckToTruckTV.addTextChangedListener {
+            EquivalentBags.truckToTruckCalc(binding)
+        }
+        binding.truckToTruckOowTV.addTextChangedListener {
+            EquivalentBags.truckToTruckCalc(binding)
+        }
 
         return view
     }
