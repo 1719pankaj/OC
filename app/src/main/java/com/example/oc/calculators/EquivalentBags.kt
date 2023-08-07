@@ -6,6 +6,7 @@ import com.example.oc.databinding.FragmentCalcBinding
 import java.text.DecimalFormat
 
 class EquivalentBags {
+
     companion object {
         fun truckToShedCalc(binding: FragmentCalcBinding) {
             val truckToShed = binding.truckToShedTV.text.toString().toDoubleOrNull() ?: 0.0
@@ -18,6 +19,7 @@ class EquivalentBags {
                 CnN.TruckToShedTotal = 0.0
                 binding.truckToShedTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun wagonToShedCalc(binding: FragmentCalcBinding) {
@@ -31,6 +33,7 @@ class EquivalentBags {
                 CnN.WagonToShedTotal = 0.0
                 binding.wagonToShedTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun wagonToPlatformCalc(binding: FragmentCalcBinding) {
@@ -44,6 +47,7 @@ class EquivalentBags {
                 CnN.WagonToPlatformTotal = 0.0
                 binding.wagonToPlatformTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun platformToShedCalc(binding: FragmentCalcBinding) {
@@ -57,6 +61,7 @@ class EquivalentBags {
                 CnN.PlatformToShedTotal = 0.0
                 binding.platformToShedTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun shedToTruckCalc(binding: FragmentCalcBinding) {
@@ -70,6 +75,7 @@ class EquivalentBags {
                 CnN.ShedToTruckTotal = 0.0
                 binding.shedToTruckTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun truckToPlatformCalc(binding: FragmentCalcBinding) {
@@ -83,6 +89,7 @@ class EquivalentBags {
                 CnN.TruckToPlatformTotal = 0.0
                 binding.truckToPlatformTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun shedToWagonCalc(binding: FragmentCalcBinding) {
@@ -96,6 +103,7 @@ class EquivalentBags {
                 CnN.ShedToWagonTotal = 0.0
                 binding.shedToWagonTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun wagonToTruckCalc(binding: FragmentCalcBinding) {
@@ -109,6 +117,7 @@ class EquivalentBags {
                 CnN.WagonToTruckTotal = 0.0
                 binding.wagonToTruckTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun refillingCalc(binding: FragmentCalcBinding) {
@@ -121,8 +130,9 @@ class EquivalentBags {
                 CnN.RefillingTotal = 0.0
                 binding.refillingTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
-//Restacking has oow field
+
         fun restackingCalc(binding: FragmentCalcBinding) {
             val restacking = binding.restackingTV.text.toString().toDoubleOrNull() ?: 0.0
             val restackingOOW = binding.restackingOowTV.text.toString().toDoubleOrNull() ?: 0.0
@@ -134,6 +144,7 @@ class EquivalentBags {
                 CnN.RestackingTotal = 0.0
                 binding.restackingTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun truckToTruckCalc(binding: FragmentCalcBinding) {
@@ -147,6 +158,7 @@ class EquivalentBags {
                 CnN.TruckToTruckTotal = 0.0
                 binding.truckToTruckTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
 
         fun weightmentCalc(binding: FragmentCalcBinding) {
@@ -159,7 +171,45 @@ class EquivalentBags {
                 CnN.WeightmentTotal = 0.0
                 binding.weightmentTotalTV.text = "0.0"
             }
+            updateTotalBags(binding)
         }
+
+        fun updateHeadCount(binding: FragmentCalcBinding) {
+            val headCount = binding.headCountET.text.toString().toIntOrNull() ?: 0
+            if(headCount != 0)
+                CnN.HeadCount = headCount
+            else
+                CnN.HeadCount = 0
+            updateTotalBags(binding)
+
+        }
+
+        fun updateTotalBags(binding: FragmentCalcBinding) {
+            CnN.TotalBags = CnN.WeightmentTotal + CnN.TruckToTruckTotal + CnN.RestackingTotal +
+                    CnN.RefillingTotal + CnN.WagonToTruckTotal + CnN.ShedToWagonTotal +
+                    CnN.TruckToPlatformTotal + CnN.ShedToTruckTotal +
+                    CnN.PlatformToShedTotal + CnN.WagonToPlatformTotal +
+                    CnN.WagonToShedTotal + CnN.TruckToShedTotal
+            binding.totalBagsTV.text = DecimalFormat("#.##").format(CnN.TotalBags)
+            CnN.PerHeadBags = CnN.TotalBags/CnN.HeadCount
+            binding.textView.text = CnN.PerHeadBags.toString()
+            normsCalc(binding)
+
+        }
+
+        ///////*****************************************************/////
+        fun normsCalc(binding: FragmentCalcBinding) {
+
+            // If WorkDay //
+            CnN.OtHourBag = (CnN.PerHeadBags/7)* CnN.OtHours - RnN.DailyNorms
+            CnN.DailyBags = CnN.PerHeadBags- CnN.OtHourBag
+            // If Holiday //
+            CnN.OtHourBag = CnN.PerHeadBags - RnN.DailyNorms
+            CnN.DailyBags = 0.0
+            // After Daily Norm //
+
+        }
+
 
 
     }

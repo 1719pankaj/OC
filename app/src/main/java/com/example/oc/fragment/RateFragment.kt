@@ -55,6 +55,17 @@ class RateFragment : Fragment() {
 
         calculateDerivedValues()
 
+        RnN.H11_12 = RnN.perDayBags * 0.1
+        RnN.H13_14 = RnN.perDayBags * 0.25
+        RnN.H15_16 = RnN.perDayBags * 0.3
+        RnN.H17_18 = RnN.perDayBags * 0.4
+        RnN.H19_20 = RnN.perDayBags * 0.5
+
+        RnN.L66_99 = RnN.perDayBags * 0.15
+        RnN.L100_132 = RnN.perDayBags * 0.3
+        RnN.L133_165 = RnN.perDayBags * 0.5
+        RnN.L165Av = RnN.perDayBags
+
         binding.height1112TV.text = RnN.H11_12.toString()
         binding.height1314TV.text = RnN.H13_14.toString()
         binding.height1516TV.text = RnN.H15_16.toString()
@@ -119,18 +130,18 @@ class RateFragment : Fragment() {
         val days = RnN.Days
         val norms = RnN.TruckToShed
 
-        val perDayBasic = (oldBasic / 26).roundToTwoDecimalPlaces()
-        val perDayDA = ((oldBasic * (oldDA / 100) * 12) / days).roundToTwoDecimalPlaces()
-        val perDayHRA = ((oldBasic * (oldHRA / 100) * 12) / days).roundToTwoDecimalPlaces()
-        val perDayTotal = (perDayBasic + perDayDA + perDayHRA).roundToTwoDecimalPlaces()
-        val perDayBags = (perDayTotal / norms).roundToTwoDecimalPlaces()
+        RnN.perDayBasic = (oldBasic / 26).roundToTwoDecimalPlaces()
+        RnN.perDayDA = ((oldBasic * (oldDA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        RnN.perDayHRA = ((oldBasic * (oldHRA / 100) * 12) / days).roundToTwoDecimalPlaces()
+        RnN.perDayTotal = (RnN.perDayBasic + RnN.perDayDA + RnN.perDayHRA).roundToTwoDecimalPlaces()
+        RnN.perDayBags = (RnN.perDayTotal / norms).roundToTwoDecimalPlaces()
 
 
-        binding.upperBasicTV.text = perDayBasic.toString()
-        binding.upperDaTV.text = perDayDA.toString()
-        binding.upperHraTV.text = perDayHRA.toString()
-        binding.upperPerDayTV.text = perDayTotal.toString()
-        binding.upperPerBagTV.text = perDayBags.toString()
+        binding.upperBasicTV.text = RnN.perDayBasic.toString()
+        binding.upperDaTV.text = RnN.perDayDA.toString()
+        binding.upperHraTV.text = RnN.perDayHRA.toString()
+        binding.upperPerDayTV.text = RnN.perDayTotal.toString()
+        binding.upperPerBagTV.text = RnN.perDayBags.toString()
 
 
         val newBasic = RnN.NewBasic
