@@ -1,0 +1,1584 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragment.CalcFragment">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shed_number_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/shed_number_ET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Shed No."
+                    android:inputType="number"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/date_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/dateET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Date"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/start_time_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shed_number_card_view">
+
+                <TextView
+                    android:id="@+id/start_timeET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Start Time"
+                    android:inputType="none"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/end_time_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toEndOf="@id/start_time_card_view"
+                app:layout_constraintTop_toBottomOf="@id/shed_number_card_view"
+                tools:layout_editor_absoluteY="98dp">
+
+                <TextView
+                    android:id="@+id/end_timeET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="End Time"
+                    android:inputType="time"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <View
+                android:id="@+id/the_great_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_time_card_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/head_count_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/the_great_divider">
+
+                <EditText
+                    android:id="@+id/head_countET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Heads"
+                    android:inputType="number"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/over_time_hours_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Over Time"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/over_time_hoursTV"
+                app:layout_constraintEnd_toStartOf="@+id/over_time_hoursTV" />
+
+            <TextView
+                android:id="@+id/over_time_hoursTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="0.0"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/head_count_card_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/head_count_card_view" />
+
+
+            <TextView
+                android:id="@+id/truck_to_shed_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Truck To Shed"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/head_count_card_view" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_shed_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_shed_labTV"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_shed_labTV">
+
+                <EditText
+                    android:id="@+id/truck_to_shedTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_shed_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_shed_card_view"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_shed_card_view"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_shed_card_view">
+
+                <EditText
+                    android:id="@+id/truck_to_shed_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/truck_to_shed_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_shed_oow_card_view" />
+
+            <TextView
+                android:id="@+id/wagon_to_shed_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Wagon To Shed"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_shed_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_shed_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_labTV"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_shed_labTV">
+
+                <EditText
+                    android:id="@+id/wagon_to_shedTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_shed_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_shed_card_view"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_card_view"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_shed_card_view">
+
+                <EditText
+                    android:id="@+id/wagon_to_shed_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/wagon_to_shed_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_shed_oow_card_view" />
+
+            <TextView
+                android:id="@+id/wagon_to_platform_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Wagon To Platform"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_shed_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_platform_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_labTV"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_platform_labTV">
+
+                <EditText
+                    android:id="@+id/wagon_to_platformTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_platform_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_platform_card_view"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_card_view"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_platform_card_view">
+
+                <EditText
+                    android:id="@+id/wagon_to_platform_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/wagon_to_platform_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_platform_oow_card_view" />
+
+            <TextView
+                android:id="@+id/platform_to_shed_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Platform To Shed"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_platform_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/platform_to_shed_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/platform_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/platform_to_shed_labTV"
+                app:layout_constraintTop_toTopOf="@+id/platform_to_shed_labTV">
+
+                <EditText
+                    android:id="@+id/platform_to_shedTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/platform_to_shed_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/platform_to_shed_card_view"
+                app:layout_constraintStart_toEndOf="@+id/platform_to_shed_card_view"
+                app:layout_constraintTop_toTopOf="@+id/platform_to_shed_card_view">
+
+                <EditText
+                    android:id="@+id/platform_to_shed_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/platform_to_shed_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/platform_to_shed_labTV"
+                app:layout_constraintStart_toEndOf="@+id/platform_to_shed_oow_card_view" />
+
+            <TextView
+                android:id="@+id/shed_to_truck_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Shed To Truck"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/platform_to_shed_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shed_to_truck_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/shed_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_truck_labTV"
+                app:layout_constraintTop_toTopOf="@+id/shed_to_truck_labTV">
+
+                <EditText
+                    android:id="@+id/shed_to_truckTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shed_to_truck_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/shed_to_truck_card_view"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_truck_card_view"
+                app:layout_constraintTop_toTopOf="@+id/shed_to_truck_card_view">
+
+                <EditText
+                    android:id="@+id/shed_to_truck_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/shed_to_truck_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_truck_oow_card_view" />
+
+            <TextView
+                android:id="@+id/truck_to_platform_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Truck To Platform"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shed_to_truck_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_platform_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_platform_labTV"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_platform_labTV">
+
+                <EditText
+                    android:id="@+id/truck_to_platformTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_platform_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_platform_card_view"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_platform_card_view"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_platform_card_view">
+
+                <EditText
+                    android:id="@+id/truck_to_platform_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/truck_to_platform_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_platform_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_platform_oow_card_view" />
+
+            <TextView
+                android:id="@+id/shed_to_wagon_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Shed To Wagon"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_platform_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shed_to_wagon_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/shed_to_wagon_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_labTV"
+                app:layout_constraintTop_toTopOf="@+id/shed_to_wagon_labTV">
+
+                <EditText
+                    android:id="@+id/shed_to_wagonTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shed_to_wagon_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/shed_to_wagon_card_view"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_card_view"
+                app:layout_constraintTop_toTopOf="@+id/shed_to_wagon_card_view">
+
+                <EditText
+                    android:id="@+id/shed_to_wagon_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/shed_to_wagon_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/shed_to_wagon_labTV"
+                app:layout_constraintStart_toEndOf="@+id/shed_to_wagon_oow_card_view" />
+
+            <TextView
+                android:id="@+id/wagon_to_truck_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Wagon To Truck"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shed_to_wagon_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_truck_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_labTV"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_truck_labTV">
+
+                <EditText
+                    android:id="@+id/wagon_to_truckTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/wagon_to_truck_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/wagon_to_truck_card_view"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_card_view"
+                app:layout_constraintTop_toTopOf="@+id/wagon_to_truck_card_view">
+
+                <EditText
+                    android:id="@+id/wagon_to_truck_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/wagon_to_truck_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/wagon_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/wagon_to_truck_oow_card_view" />
+
+            <TextView
+                android:id="@+id/refilling_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Refilling"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wagon_to_truck_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/refilling_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/refilling_labTV"
+                app:layout_constraintStart_toEndOf="@+id/refilling_labTV"
+                app:layout_constraintTop_toTopOf="@+id/refilling_labTV">
+
+                <EditText
+                    android:id="@+id/refillingTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/refilling_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="78dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/refilling_labTV"
+                app:layout_constraintStart_toEndOf="@+id/refilling_card_view" />
+
+
+            <TextView
+                android:id="@+id/restacking_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Restacking"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/refilling_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/restacking_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/restacking_labTV"
+                app:layout_constraintStart_toEndOf="@+id/restacking_labTV"
+                app:layout_constraintTop_toTopOf="@+id/restacking_labTV">
+
+                <EditText
+                    android:id="@+id/restackingTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/restacking_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/restacking_card_view"
+                app:layout_constraintStart_toEndOf="@+id/restacking_card_view"
+                app:layout_constraintTop_toTopOf="@+id/restacking_card_view">
+
+                <EditText
+                    android:id="@+id/restacking_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/restacking_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/restacking_labTV"
+                app:layout_constraintStart_toEndOf="@+id/restacking_oow_card_view" />
+
+            <TextView
+                android:id="@+id/weightment_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Weightment"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restacking_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weightment_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/weightment_labTV"
+                app:layout_constraintStart_toEndOf="@+id/weightment_labTV"
+                app:layout_constraintTop_toTopOf="@+id/weightment_labTV">
+
+                <EditText
+                    android:id="@+id/weightmentTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/weightment_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="78dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/weightment_labTV"
+                app:layout_constraintStart_toEndOf="@+id/weightment_card_view" />
+
+            <TextView
+                android:id="@+id/truck_to_truck_labTV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Truck To Truck"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightment_labTV" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_truck_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_truck_labTV"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_truck_labTV">
+
+                <EditText
+                    android:id="@+id/truck_to_truckTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="Bags"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/truck_to_truck_oow_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/truck_to_truck_card_view"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_truck_card_view"
+                app:layout_constraintTop_toTopOf="@+id/truck_to_truck_card_view">
+
+                <EditText
+                    android:id="@+id/truck_to_truck_oowTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="O/W"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/truck_to_truck_totalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/truck_to_truck_labTV"
+                app:layout_constraintStart_toEndOf="@+id/truck_to_truck_oow_card_view" />
+
+            <TextView
+                android:id="@+id/total_bagsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="0.00"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_truck_totalTV"
+                app:layout_constraintStart_toStartOf="@+id/truck_to_truck_totalTV"
+                app:layout_constraintEnd_toEndOf="@+id/truck_to_truck_totalTV"/>
+
+
+            <TextView
+                android:id="@+id/total_bags_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Total Bags"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/total_bagsTV"
+                app:layout_constraintTop_toTopOf="@+id/total_bagsTV"
+                app:layout_constraintBottom_toBottomOf="@+id/total_bagsTV"
+                />
+
+
+
+
+            <View
+                android:id="@+id/divider_first"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="70dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/truck_to_truck_labTV" />
+
+            <TextView
+                android:id="@+id/slave_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Slave Bags"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
+            />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/first_30_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/slave_labTV"
+                app:layout_constraintStart_toStartOf="@+id/slave_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/slave_labTV">
+
+                <EditText
+                    android:id="@+id/first_30_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="1st 30"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/second_30_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/first_30_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/first_30_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/first_30_slave_card_view">
+
+                <EditText
+                    android:id="@+id/second_30_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="2nd 30"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/third_15_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/second_30_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/second_30_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/second_30_slave_card_view">
+
+                <EditText
+                    android:id="@+id/third_15_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="3rd 15"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/incentive_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Incetive"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/slave_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
+            />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/incentive_first_30_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/incentive_labTV"
+                app:layout_constraintStart_toStartOf="@+id/incentive_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/incentive_labTV">
+
+                <EditText
+                    android:id="@+id/incentive_first_30_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="1st 30"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/incentive_second_30_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/incentive_first_30_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/incentive_first_30_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/incentive_first_30_slave_card_view">
+
+                <EditText
+                    android:id="@+id/incentive_second_30_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="2nd 30"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/incentive_third_15_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/incentive_second_30_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/incentive_second_30_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/incentive_second_30_slave_card_view">
+
+                <EditText
+                    android:id="@+id/incentive_third_15_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="3rd 15"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/ot_slave_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Slave Bags"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/incentive_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
+            />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_first_10_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_slave_labTV"
+                app:layout_constraintStart_toStartOf="@+id/ot_slave_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/ot_slave_labTV">
+
+                <EditText
+                    android:id="@+id/ot_first_10_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="1stA 10"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_second_10_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_first_10_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/ot_first_10_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/ot_first_10_slave_card_view">
+
+                <EditText
+                    android:id="@+id/ot_second_10_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="2ndA 10"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_third_2_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_second_10_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/ot_second_10_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/ot_second_10_slave_card_view">
+
+                <EditText
+                    android:id="@+id/ot_third_2_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="3rdA 2"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ot_incentive_slave_labTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="OT Incentive"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/ot_slave_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
+            />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_incentive_first_10_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_slave_labTV"
+                app:layout_constraintStart_toStartOf="@+id/ot_incentive_slave_labTV"
+                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_slave_labTV">
+
+                <EditText
+                    android:id="@+id/ot_incentive_first_10_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="1stA 10"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_incentive_second_10_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_first_10_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/ot_incentive_first_10_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_first_10_slave_card_view">
+
+                <EditText
+                    android:id="@+id/ot_incentive_second_10_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="2ndA 10"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_incentive_third_2_slave_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_second_10_slave_card_view"
+                app:layout_constraintStart_toStartOf="@+id/ot_incentive_second_10_slave_card_view"
+                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_second_10_slave_card_view">
+
+                <EditText
+                    android:id="@+id/ot_incentive_third_2_slaveET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="3rdA 2"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <CheckBox
+                android:id="@+id/weekday_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Workday"
+                app:layout_constraintBottom_toBottomOf="@+id/end_time_card_view"
+                app:layout_constraintStart_toEndOf="@+id/end_time_card_view"
+                app:layout_constraintTop_toTopOf="@+id/end_time_card_view"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="800dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/truck_to_truck_labTV" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Reset"
+        android:layout_gravity="bottom|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
