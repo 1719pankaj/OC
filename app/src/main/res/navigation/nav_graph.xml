@@ -32,6 +32,11 @@
             app:destination="@id/itsMyFirstTime"
             app:popUpTo="@id/splashFragment2"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment2_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/rateFragment"
@@ -53,9 +58,20 @@
         android:label="fragment_its_my_first_time"
         tools:layout="@layout/fragment_its_my_first_time" >
         <action
-            android:id="@+id/action_itsMyFirstTime_to_mainFragment"
-            app:destination="@id/mainFragment"
+            android:id="@+id/action_itsMyFirstTime_to_notificationFragment"
+            app:destination="@id/notificationFragment"
             app:popUpTo="@id/itsMyFirstTime"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.oc.fragment.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/notificationFragment"
             app:popUpToInclusive="true" />
     </fragment>
 

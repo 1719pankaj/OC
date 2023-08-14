@@ -47,7 +47,7 @@ class ItsMyFirstTime : Fragment() {
         binding.verifyBT.setOnClickListener {
             if (binding.codeET.text.toString() == code) {
                 setFirstTime()
-                findNavController().navigate(R.id.action_itsMyFirstTime_to_mainFragment)
+                findNavController().navigate(R.id.action_itsMyFirstTime_to_notificationFragment)
             } else {
                 Toast.makeText(context, "Enter correct C0D3!", Toast.LENGTH_SHORT).show()
             }

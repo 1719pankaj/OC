@@ -3,6 +3,7 @@ package com.example.oc.data
 class RnN {
     companion object {
         var Owner: String = "MTL"
+        var CurrentVersion: String = "0.0.0"
         var MaalkiKaNumber: String = "9883293901"
         var FirstTime: Boolean = true
 
