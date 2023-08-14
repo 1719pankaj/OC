@@ -1558,15 +1558,14 @@
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="800dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/truck_to_truck_labTV" />
+            <View
+                android:id="@+id/divider"
+                android:layout_width="409dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintTop_toBottomOf="@+id/ot_third_2_slave_card_view"
+                tools:layout_editor_absoluteX="1dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

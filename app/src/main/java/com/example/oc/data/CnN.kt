@@ -2,6 +2,9 @@ package com.example.oc.data
 
 class CnN {
     companion object {
+
+        var OtHours: Double = 0.0
+        var HeadCount: Int = 0
         var WeightmentTotal: Double = 0.0
         var TruckToTruckTotal: Double = 0.0
         var RestackingTotal: Double = 0.0
@@ -16,6 +19,10 @@ class CnN {
         var TruckToShedTotal: Double = 0.0
 
         var TotalBags: Double = 0.0
+        var PerHeadBags: Double = 0.0
+
+        var OtHourBag: Double = 0.0
+        var DailyBags: Double = 0.0
 
 
     }

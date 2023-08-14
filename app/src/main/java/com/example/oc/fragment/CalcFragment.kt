@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import com.example.oc.calculators.EquivalentBags
+import com.example.oc.data.CnN
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
 import java.text.DecimalFormat
@@ -30,7 +31,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
     private val binding get() = _binding!!
 
-    private var overTimeHours = 0.0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
@@ -181,6 +181,13 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             EquivalentBags.truckToTruckCalc(binding)
         }
 
+
+        binding.headCountET.addTextChangedListener {
+            EquivalentBags.updateHeadCount(binding)
+        }
+
+
+
         return view
     }
 
@@ -268,14 +275,14 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             val timeDiff = calculateTimeDifference(startTime, endTime) - RnN.lunchHours
 //            Toast.makeText(context, "holiday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
-                overTimeHours = timeDiff
+                CnN.OtHours = timeDiff
                 updateOverTimeInUI(timeDiff)
             }
         } else {
             val timeDiff = calculateTimeDifference(startTime, endTime) - (RnN.workingHours + RnN.lunchHours)
 //            Toast.makeText(context, "workday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
-                overTimeHours = timeDiff
+                CnN.OtHours = timeDiff
                 updateOverTimeInUI(timeDiff)
             }
 

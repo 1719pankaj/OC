@@ -174,6 +174,16 @@ class EquivalentBags {
             updateTotalBags(binding)
         }
 
+        fun updateHeadCount(binding: FragmentCalcBinding) {
+            val headCount = binding.headCountET.text.toString().toIntOrNull() ?: 0
+            if(headCount != 0)
+                CnN.HeadCount = headCount
+            else
+                CnN.HeadCount = 0
+            updateTotalBags(binding)
+
+        }
+
         fun updateTotalBags(binding: FragmentCalcBinding) {
             CnN.TotalBags = CnN.WeightmentTotal + CnN.TruckToTruckTotal + CnN.RestackingTotal +
                     CnN.RefillingTotal + CnN.WagonToTruckTotal + CnN.ShedToWagonTotal +
@@ -181,8 +191,25 @@ class EquivalentBags {
                     CnN.PlatformToShedTotal + CnN.WagonToPlatformTotal +
                     CnN.WagonToShedTotal + CnN.TruckToShedTotal
             binding.totalBagsTV.text = DecimalFormat("#.##").format(CnN.TotalBags)
+            CnN.PerHeadBags = CnN.TotalBags/CnN.HeadCount
+            binding.textView.text = CnN.PerHeadBags.toString()
+            normsCalc(binding)
 
         }
+
+        ///////*****************************************************/////
+        fun normsCalc(binding: FragmentCalcBinding) {
+
+            // If WorkDay //
+            CnN.OtHourBag = (CnN.PerHeadBags/7)* CnN.OtHours - RnN.DailyNorms
+            CnN.DailyBags = CnN.PerHeadBags- CnN.OtHourBag
+            // If Holiday //
+            CnN.OtHourBag = CnN.PerHeadBags - RnN.DailyNorms
+            CnN.DailyBags = 0.0
+            // After Daily Norm //
+
+        }
+
 
 
     }
