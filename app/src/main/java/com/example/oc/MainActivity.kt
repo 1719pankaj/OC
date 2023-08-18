@@ -1,38 +1,23 @@
 package com.example.oc
 
-import android.Manifest
-import android.app.Activity
 import android.app.DownloadManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
+import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.oc.databinding.ActivityMainBinding
 import com.example.oc.services.ReleaseCheckWorker
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import okio.IOException
 import java.io.File
 
-const val WRITE_STORAGE_PERMISSION_REQUEST_CODE = 1001
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -54,8 +39,13 @@ class MainActivity : AppCompatActivity() {
             val description = "Downloading Update"
             downloadWithDownloadManager(this, downloadUrl, title, description, version.toString())
         } else {
-            val workRequest = OneTimeWorkRequest.Builder(ReleaseCheckWorker::class.java).build()
-            WorkManager.getInstance(this).enqueue(workRequest)
+            try {
+                val workRequest = OneTimeWorkRequest.Builder(ReleaseCheckWorker::class.java).build()
+                WorkManager.getInstance(this).enqueue(workRequest)
+            } catch (e: Exception) {
+                Log.e("ReleaseCheckRunner", "Error: ${e.message}")
+                Toast.makeText(this, "Network not available\nCan't check for updates.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -87,22 +77,14 @@ class MainActivity : AppCompatActivity() {
 
         // Create a subdirectory within the app's data directory for downloads
         val downloadsDir = File(appDataDir, "downloads")
-        if (!downloadsDir.exists()) {
+
+        if (!downloadsDir.exists())
             downloadsDir.mkdirs()
-        }
 
         val fileName = "$version.apk"
         val destinationFile = File(downloadsDir, fileName)
         request.setDestinationUri(Uri.fromFile(destinationFile))
-
         downloadManager.enqueue(request)
-
-        // Set the notification intent to open the downloaded file
-        val fileUri = Uri.fromFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/OC/$version.apk"))
-        val openIntent = Intent(Intent.ACTION_VIEW)
-            .setDataAndType(fileUri, "application/*")
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-
     }
 
 }

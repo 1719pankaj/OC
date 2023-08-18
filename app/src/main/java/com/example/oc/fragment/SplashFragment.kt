@@ -28,8 +28,6 @@ class SplashFragment : Fragment() {
 
         binding.textView.text = RnN.Owner
 
-        Toast.makeText(context, RnN.FirstTime.toString(), Toast.LENGTH_SHORT).show()
-
         Handler().postDelayed({
             if (getFirstTime()) {
                 findNavController().navigate(R.id.action_splashFragment2_to_itsMyFirstTime)

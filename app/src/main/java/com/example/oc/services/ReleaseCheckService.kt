@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -27,32 +28,44 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
 
     private val owner = "1719pankaj"
     private val repo = "OC"
-    private val token = "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"
+    private val token = "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"
     val notificationId = "update_notiff"
 
 
 
     override fun doWork(): Result {
         GlobalScope.launch(Dispatchers.IO) {
+
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url("https://api.github.com/repos/$owner/$repo/releases")
                 .addHeader("Authorization", "token $token")
                 .build()
 
-            val response = client.newCall(request).execute()
-            val releasesJson = JSONArray(response.body?.string())
+            //wrap the next 2 lines in try/catch
+           try {
+               val response = client.newCall(request).execute()
+               val releasesJson = JSONArray(response.body?.string())
 
-            if (releasesJson.length() > 0) {
-                val latestRelease = releasesJson.getJSONObject(0)
-                val latestVersion = latestRelease.getString("tag_name")
 
-                if (latestVersion > RnN.CurrentVersion) {
-                    showNotification("New Release Available", "Latest version is now available.", latestVersion)
-                } else {
-//                    clearAppDataDir()
-                }
-            }
+               if (releasesJson.length() > 0) {
+                   val latestRelease = releasesJson.getJSONObject(0)
+                   val latestVersion = latestRelease.getString("tag_name")
+
+                   clearAppDataDir(latestVersion)
+
+                   if (latestVersion > RnN.CurrentVersion) {
+                       showNotification(
+                           "New Release Available",
+                           "Latest version is now available.",
+                           latestVersion
+                       )
+                   }
+               }
+           } catch (e: Exception) {
+               Log.e("ReleaseCheckWorker", "Error checking for new release", e)
+           }
+
         }
         return Result.success()
     }
@@ -87,29 +100,45 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
         }
     }
 
-    fun clearAppDataDir() {
-        val appDataDir = applicationContext.getExternalFilesDir(null)
+    fun clearAppDataDir(currentVersion: String) {
+        val appDataDir = applicationContext.getExternalFilesDir("downloads")
 
         if (appDataDir != null) {
             val files = appDataDir.listFiles()
             if (files != null) {
+                val versionCodePattern = """^$currentVersion(-\d+)?\.apk$""".toRegex()
+                val currentVersionFiles = mutableSetOf<String>()
+
+                // Identify current version files and older files
+                val filesToDelete = mutableListOf<File>()
                 for (file in files) {
-                    deleteRecursive(file)
+                    if (file.isFile) {
+                        val fileName = file.name
+                        if (fileName.matches(versionCodePattern)) {
+                            if (fileName == "$currentVersion.apk") {
+                                currentVersionFiles.add(fileName)
+                            } else if (fileName.startsWith("$currentVersion-")) {
+                                val versionNumber = fileName.substring(currentVersion.length + 1, fileName.lastIndexOf('.'))
+                                if (versionNumber.toIntOrNull() != null) {
+                                    filesToDelete.add(file)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Delete older files and duplicates of current version
+                for (file in filesToDelete) {
+                    file.deleteRecursively()
+                }
+
+                // Delete duplicate current version files
+                currentVersionFiles.forEach { fileName ->
+                    files.filter { it.name == fileName && it != filesToDelete }
+                        .forEach { it.delete() }
                 }
             }
         }
     }
 
-    private fun deleteRecursive(fileOrDirectory: File) {
-        if (fileOrDirectory.isDirectory) {
-            val children = fileOrDirectory.listFiles()
-            if (children != null) {
-                for (child in children) {
-                    deleteRecursive(child)
-                }
-            }
-        }
-
-        fileOrDirectory.delete()
-    }
 }
