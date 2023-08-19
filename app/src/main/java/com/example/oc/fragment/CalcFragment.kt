@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import com.example.oc.calculators.EquivalentBags
+import com.example.oc.calculators.NormsAndIncentive
 import com.example.oc.data.CnN
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
@@ -37,6 +38,9 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val view = binding.root
 
         binding.textView.text = RnN.Owner
+
+        //Heavy shit, might break
+        RnN.calculateDerivedValues()
 
 
         binding.reset.setOnClickListener {
@@ -73,6 +77,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
 
         binding.weekdaySwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+            CnN.weekDay = isChecked
             val startTime = binding.startTimeET.text.toString()
             val endTime = binding.endTimeET.text.toString()
 
@@ -80,7 +86,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 updateOvertime()
             }
 
-            val switchText = if (isChecked) "Holiday" else "Workday"
+            val switchText = if (CnN.weekDay) "Holiday" else "Workday"
             binding.weekdaySwitch.text = switchText
         }
 
@@ -186,9 +192,26 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             EquivalentBags.updateHeadCount(binding)
         }
 
+        binding.calculateBT.setOnClickListener {
+            inputIntegrityCheck(binding)
+        }
+
 
 
         return view
+    }
+
+    private fun inputIntegrityCheck(binding: FragmentCalcBinding) {
+
+        if (CnN.HeadCount <= 0){
+            Toast.makeText(context, "Update Head Count", Toast.LENGTH_SHORT).show()
+            return
+        }
+        NormsAndIncentive.splitDailyBagsOTBags(binding)
+        binding.dailyTV.text = CnN.DailyBags.toString()
+        binding.overTV.text = CnN.OtHourBags.toString()
+
+
     }
 
     private fun setDefaults() {
@@ -207,6 +230,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
         if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             binding.weekdaySwitch.setChecked(true)
+        } else {
+            binding.weekdaySwitch.setChecked(false)
         }
         updateOvertime()
 
@@ -271,30 +296,24 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val startTime = binding.startTimeET.text.toString()
         val endTime = binding.endTimeET.text.toString()
 
-        if (binding.weekdaySwitch.isChecked) {
+        if (CnN.weekDay) {
             val timeDiff = calculateTimeDifference(startTime, endTime) - RnN.lunchHours
 //            Toast.makeText(context, "holiday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
                 CnN.OtHours = timeDiff
-                updateOverTimeInUI(timeDiff)
+                binding.overTimeHoursTV.text = formatHoursMinutes(CnN.OtHours)
             }
         } else {
             val timeDiff = calculateTimeDifference(startTime, endTime) - (RnN.workingHours + RnN.lunchHours)
 //            Toast.makeText(context, "workday ${startTime + ", " + endTime + ", timediff: " + timeDiff}", Toast.LENGTH_SHORT).show()
             if (timeDiff >= 0) {
                 CnN.OtHours = timeDiff
-                updateOverTimeInUI(timeDiff)
+                binding.overTimeHoursTV.text = formatHoursMinutes(CnN.OtHours)
             }
 
         }
     }
 
-
-
-    fun updateOverTimeInUI(overTime: Double) {
-        val formattedOverTime = formatHoursMinutes(overTime)
-        binding.overTimeHoursTV.text = formattedOverTime
-    }
 
     fun formatHoursMinutes(hours: Double): String {
         val wholeHours = hours.toInt()

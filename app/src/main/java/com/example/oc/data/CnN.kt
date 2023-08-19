@@ -3,6 +3,8 @@ package com.example.oc.data
 class CnN {
     companion object {
 
+        var OtHourBags: Double = 0.0
+        var weekDay: Boolean = false
         var OtHours: Double = 0.0
         var HeadCount: Int = 0
         var WeightmentTotal: Double = 0.0

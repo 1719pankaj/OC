@@ -75,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         // Get the app's private data directory
         val appDataDir = context.getExternalFilesDir(null)
 
-        // Create a subdirectory within the app's data directory for downloads
         val downloadsDir = File(appDataDir, "downloads")
 
         if (!downloadsDir.exists())

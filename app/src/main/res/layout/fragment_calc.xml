@@ -23,9 +23,10 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="800dp"
                 android:text="Owner Name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/divider_the_second"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/shed_number_card_view"
@@ -1130,10 +1131,8 @@
                 />
 
 
-
-
             <View
-                android:id="@+id/divider_first"
+                android:id="@+id/divider_the_first"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
@@ -1145,64 +1144,35 @@
                 app:layout_constraintTop_toBottomOf="@id/truck_to_truck_labTV" />
 
             <TextView
-                android:id="@+id/slave_labTV"
+                android:id="@+id/height_rate_titleTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Slave Bags"
-                android:textSize="16sp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="Height"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
-            />
+                app:layout_constraintTop_toBottomOf="@id/divider_the_first" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/first_30_slave_card_view"
+                android:id="@+id/h11_12_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/slave_labTV"
-                app:layout_constraintStart_toStartOf="@+id/slave_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/slave_labTV">
+                app:layout_constraintTop_toBottomOf="@+id/height_rate_titleTV"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <EditText
-                    android:id="@+id/first_30_slaveET"
+                    android:id="@+id/h11_12ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="1st 30"
-                    android:inputType="date"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/second_30_slave_card_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/first_30_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/first_30_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/first_30_slave_card_view">
-
-                <EditText
-                    android:id="@+id/second_30_slaveET"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/floating_bg"
-                    android:hint="2nd 30"
+                    android:hint="11-12"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1216,64 +1186,23 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/third_15_slave_card_view"
+                android:id="@+id/h13_14_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/second_30_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/second_30_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/second_30_slave_card_view">
+                app:layout_constraintTop_toBottomOf="@+id/h11_12_card_view"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <EditText
-                    android:id="@+id/third_15_slaveET"
+                    android:id="@+id/h13_14ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rd 15"
-                    android:inputType="date"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/incentive_labTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Incetive"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/slave_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
-            />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/incentive_first_30_slave_card_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/incentive_labTV"
-                app:layout_constraintStart_toStartOf="@+id/incentive_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/incentive_labTV">
-
-                <EditText
-                    android:id="@+id/incentive_first_30_slaveET"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/floating_bg"
-                    android:hint="1st 30"
+                    android:hint="13-14"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1286,23 +1215,23 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/incentive_second_30_slave_card_view"
+                android:id="@+id/h15_16_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/incentive_first_30_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/incentive_first_30_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/incentive_first_30_slave_card_view">
+                app:layout_constraintTop_toBottomOf="@+id/h13_14_card_view"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <EditText
-                    android:id="@+id/incentive_second_30_slaveET"
+                    android:id="@+id/h15_16ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="2nd 30"
+                    android:hint="15-16"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1316,23 +1245,53 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/incentive_third_15_slave_card_view"
+                android:id="@+id/h17_18_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/incentive_second_30_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/incentive_second_30_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/incentive_second_30_slave_card_view">
+                app:layout_constraintTop_toBottomOf="@+id/h15_16_card_view"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <EditText
-                    android:id="@+id/incentive_third_15_slaveET"
+                    android:id="@+id/h17_18ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rd 15"
+                    android:hint="17-18"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/h19_20_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/h17_18_card_view"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/h19_20ET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="19-20"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1346,64 +1305,34 @@
 
 
             <TextView
-                android:id="@+id/ot_slave_labTV"
+                android:id="@+id/lead_rate_titleTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Slave Bags"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/incentive_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
-            />
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/janna_lt_bold"
+                android:text="Lead"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@id/divider_the_first" />
+
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ot_first_10_slave_card_view"
+                android:id="@+id/l66_99_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_slave_labTV"
-                app:layout_constraintStart_toStartOf="@+id/ot_slave_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/ot_slave_labTV">
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/lead_rate_titleTV">
 
                 <EditText
-                    android:id="@+id/ot_first_10_slaveET"
+                    android:id="@+id/l66_99ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="1stA 10"
-                    android:inputType="date"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ot_second_10_slave_card_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_first_10_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/ot_first_10_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/ot_first_10_slave_card_view">
-
-                <EditText
-                    android:id="@+id/ot_second_10_slaveET"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/floating_bg"
-                    android:hint="2ndA 10"
+                    android:hint="66-99"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1417,93 +1346,22 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ot_third_2_slave_card_view"
+                android:id="@+id/l100_132_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_second_10_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/ot_second_10_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/ot_second_10_slave_card_view">
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/l66_99_card_view">
 
                 <EditText
-                    android:id="@+id/ot_third_2_slaveET"
+                    android:id="@+id/l100_132ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rdA 2"
-                    android:inputType="date"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/ot_incentive_slave_labTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="OT Incentive"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/ot_slave_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/divider_first" />
-            />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ot_incentive_first_10_slave_card_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_slave_labTV"
-                app:layout_constraintStart_toStartOf="@+id/ot_incentive_slave_labTV"
-                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_slave_labTV">
-
-                <EditText
-                    android:id="@+id/ot_incentive_first_10_slaveET"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/floating_bg"
-                    android:hint="1stA 10"
-                    android:inputType="date"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ot_incentive_second_10_slave_card_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_first_10_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/ot_incentive_first_10_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_first_10_slave_card_view">
-
-                <EditText
-                    android:id="@+id/ot_incentive_second_10_slaveET"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/floating_bg"
-                    android:hint="2ndA 10"
+                    android:hint="100-132"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1517,23 +1375,22 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ot_incentive_third_2_slave_card_view"
+                android:id="@+id/l133_165_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/ot_incentive_second_10_slave_card_view"
-                app:layout_constraintStart_toStartOf="@+id/ot_incentive_second_10_slave_card_view"
-                app:layout_constraintTop_toBottomOf="@+id/ot_incentive_second_10_slave_card_view">
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/l100_132_card_view">
 
                 <EditText
-                    android:id="@+id/ot_incentive_third_2_slaveET"
+                    android:id="@+id/l133_165ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rdA 2"
+                    android:hint="133-165"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1544,6 +1401,46 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/l165_plus_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/l133_165_card_view">
+
+                <EditText
+                    android:id="@+id/l165_plusET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/floating_bg"
+                    android:hint="165+"
+                    android:inputType="date"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <View
+                android:id="@+id/divider_the_second"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/h19_20_card_view" />
 
 
             <CheckBox
@@ -1557,16 +1454,41 @@
                 app:layout_constraintTop_toTopOf="@+id/end_time_card_view"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="197dp"
+                android:layout_marginEnd="214dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_begin="162dp"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="409dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintTop_toBottomOf="@+id/ot_third_2_slave_card_view"
-                tools:layout_editor_absoluteX="1dp" />
+            <Button
+                android:id="@+id/calculateBT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculate"
+                android:layout_margin="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_the_second" />
 
+            <TextView
+                android:id="@+id/dailyTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_the_second" />
+
+            <TextView
+                android:id="@+id/overTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dailyTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
