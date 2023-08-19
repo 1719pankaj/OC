@@ -2,7 +2,7 @@ package com.example.oc.data
 
 class CnN {
     companion object {
-
+        var weekDay: Boolean = true
         var OtHours: Double = 0.0
         var HeadCount: Int = 0
         var WeightmentTotal: Double = 0.0
@@ -23,6 +23,16 @@ class CnN {
 
         var OtHourBag: Double = 0.0
         var DailyBags: Double = 0.0
+
+        var OtSlave1: Double = 0.00
+        var OtSlave2: Double = 0.00
+        var OtSlave3: Double = 0.00
+
+        var DailySlave1: Double = 0.00
+        var DailySlave2: Double = 0.00
+        var DailySlave3: Double = 0.00
+
+
 
 
     }

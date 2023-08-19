@@ -199,14 +199,76 @@ class EquivalentBags {
 
         ///////*****************************************************/////
         fun normsCalc(binding: FragmentCalcBinding) {
+            if (binding.weekdaySwitch.isChecked) {
+                // If Holiday //
+                CnN.OtHourBag = CnN.PerHeadBags - (CnN.OtHours * RnN.OtNorms)
+                binding.otFirst10SlaveET.setText(CnN.OtHourBag.toString())
+                CnN.DailyBags = 0.0
+                binding.first30SlaveET.setText(CnN.DailyBags.toString())
+            }
+            else{
+                // If WorkDay //
+                CnN.OtHourBag = ((CnN.PerHeadBags/(7+CnN.OtHours))* CnN.OtHours) -CnN.OtHours * RnN.OtNorms
+                binding.otFirst10SlaveET.setText(CnN.OtHourBag.toString())
+                CnN.DailyBags = (CnN.PerHeadBags - CnN.OtHourBag)- RnN.DailyNorms
+                binding.first30SlaveET.setText(CnN.DailyBags.toString())
+            }
 
-            // If WorkDay //
-            CnN.OtHourBag = (CnN.PerHeadBags/7)* CnN.OtHours - RnN.DailyNorms
-            CnN.DailyBags = CnN.PerHeadBags- CnN.OtHourBag
-            // If Holiday //
-            CnN.OtHourBag = CnN.PerHeadBags - RnN.DailyNorms
-            CnN.DailyBags = 0.0
-            // After Daily Norm //
+            //------------------------------------------------------------------------//
+            // Slabe--OT1 //
+            if ((CnN.OtHourBag < CnN.OtHours * 5) and (CnN.OtHours > 0)){
+               CnN.OtSlave1 = CnN.OtHourBag
+                binding.otFirst10SlaveET.setText(CnN.OtSlave2.toString())
+            }
+            if ((CnN.OtHourBag >= CnN.OtHours * 5) and (CnN.OtHours > 0)){
+                CnN.OtSlave1 = CnN.OtHours * 5
+                binding.otFirst10SlaveET.setText(CnN.OtSlave2.toString())
+            }
+            // Slave--OT2 //
+            if ((CnN.OtHourBag < CnN.OtHours * 10)and (CnN.OtHours > 5)){
+                CnN.OtSlave2 = CnN.OtHourBag - CnN.OtSlave1
+
+            }
+            if ((CnN.OtHourBag >= CnN.OtHours * 10) and (CnN.OtHours > 5)){
+                CnN.OtSlave2 = CnN.OtHours * 5
+
+            }
+            // Slave--OT3 //
+            if ((CnN.OtHourBag < CnN.OtHours * 30) and (CnN.OtHours > 10)){
+                CnN.OtSlave3 = CnN.OtHourBag - CnN.OtSlave1
+            }
+            if ((CnN.OtHourBag >= CnN.OtHours * 30) and (CnN.OtHours > 10)){
+                CnN.OtSlave3 = CnN.OtHours * 5
+            }
+            //------------------------------------------------------------------------//
+            // Slave-1 //
+            if ( (CnN.DailyBags < 30) and (CnN.DailyBags > 0)){
+                CnN.DailySlave1 = CnN.DailyBags
+
+
+            }
+            if ( (CnN.DailyBags >= 30) and (CnN.DailyBags > 0)){
+                CnN.DailySlave1 = 30.00
+            }
+            // Slave-2 //
+            if ( (CnN.DailyBags < 60) and (CnN.DailyBags > 0)){
+                CnN.DailySlave2 = CnN.DailyBags - 30
+                binding.second30SlaveET.setText(CnN.DailySlave2.toString())
+            }
+            if ( (CnN.DailyBags >= 60) and (CnN.DailyBags > 0)){
+                CnN.DailySlave2 = 30.00
+                binding.second30SlaveET.setText(CnN.DailySlave2.toString())
+            }
+            // Slave-3 //
+            if ( (CnN.DailyBags < 90) and (CnN.DailyBags > 0)){
+                CnN.DailySlave3 = CnN.DailyBags - 60
+            }
+            if ( (CnN.DailyBags >= 90) and (CnN.DailyBags > 0)){
+                CnN.DailySlave3 = 30.00
+            }
+
+
+
 
         }
 

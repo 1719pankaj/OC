@@ -77,6 +77,14 @@ class RateFragment : Fragment() {
         binding.lead133165TV.text = RnN.L133_165.toString()
         binding.lead165AndAboveTV.text = RnN.L165Av.toString()
 
+
+
+
+        binding.firstSlabTV.text = RnN.firstSlab.roundToTwoDecimalPlaces().toString()
+        binding.secondSlabTV.text = RnN.secondSlab.roundToTwoDecimalPlaces().toString()
+        binding.thirdSlabTV.text = RnN.thirdSlab.roundToTwoDecimalPlaces().toString()
+        binding.fourthSlabTV.text = RnN.fourthSlab.roundToTwoDecimalPlaces().toString()
+
         binding.updateBT.setOnClickListener {
             editRates()
         }
@@ -159,6 +167,11 @@ class RateFragment : Fragment() {
         binding.lowerHraTV.text = perDayHRANew.toString()
         binding.lowerPerDayTV.text = perDayTotalNew.toString()
         binding.lowerPerHourTV.text = perHourTotal.toString()
+
+        RnN.firstSlab = RnN.perDayBags * 1.08
+        RnN.secondSlab = RnN.perDayBags * 1.15
+        RnN.thirdSlab = RnN.perDayBags * 1.35
+        RnN.fourthSlab = RnN.perDayBags * 1.50
 
     }
 

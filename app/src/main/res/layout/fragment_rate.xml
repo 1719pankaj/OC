@@ -28,7 +28,7 @@
                 android:layout_marginTop="8dp"
                 android:text="OLD RATE"
                 android:fontFamily="@font/janna_lt_bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,7 +204,7 @@
                 android:layout_marginTop="8dp"
                 android:text="NEW RATE"
                 android:fontFamily="@font/janna_lt_bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider_first" />
 
@@ -787,7 +787,7 @@
                 android:layout_marginTop="8dp"
                 android:text="HEIGHT RATE"
                 android:fontFamily="@font/janna_lt_bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider_second" />
 
@@ -906,7 +906,7 @@
                 android:layout_marginTop="8dp"
                 android:text="LEAD"
                 android:fontFamily="@font/janna_lt_bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider_third" />
 
@@ -986,9 +986,8 @@
                 app:layout_constraintBaseline_toBaselineOf="@+id/lead_165_and_above_labTV"
                 app:layout_constraintStart_toEndOf="@+id/lead_165_and_above_labTV" />
 
-
             <View
-                android:id="@+id/divider_fourth"
+                android:id="@+id/divider_three_point_five"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_margin="16dp"
@@ -998,6 +997,104 @@
                 app:layout_constraintTop_toBottomOf="@id/lead_165_and_above_labTV" />
 
             <TextView
+                android:id="@+id/slab_titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="SLAB"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_three_point_five" />
+
+            <TextView
+                android:id="@+id/first_slab_labTV"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="1st Slab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/slab_titleTV" />
+
+            <TextView
+                android:id="@+id/first_slabTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/first_slab_labTV"
+                app:layout_constraintStart_toEndOf="@+id/first_slab_labTV" />
+
+            <TextView
+                android:id="@+id/second_slab_labTV"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="2nd Slab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_slab_labTV" />
+
+            <TextView
+                android:id="@+id/second_slabTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/second_slab_labTV"
+                app:layout_constraintStart_toEndOf="@+id/second_slab_labTV" />
+
+            <TextView
+                android:id="@+id/third_slab_labTV"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="3rd Slab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_slab_labTV" />
+
+            <TextView
+                android:id="@+id/third_slabTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/third_slab_labTV"
+                app:layout_constraintStart_toEndOf="@+id/third_slab_labTV" />
+
+            <TextView
+                android:id="@+id/fourth_slab_labTV"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Above Slab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/third_slab_labTV" />
+
+            <TextView
+                android:id="@+id/fourth_slabTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="TextView"
+                app:layout_constraintBaseline_toBaselineOf="@+id/fourth_slab_labTV"
+                app:layout_constraintStart_toEndOf="@+id/fourth_slab_labTV" />
+
+            <View
+                android:id="@+id/divider_fourth"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fourth_slab_labTV" />
+
+            <TextView
                 android:id="@+id/norms_titleTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -1005,7 +1102,7 @@
                 android:layout_marginTop="8dp"
                 android:text="NORMS"
                 android:fontFamily="@font/janna_lt_bold"
-                android:textSize="26sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider_fourth" />
 

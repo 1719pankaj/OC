@@ -10,6 +10,7 @@ class RnN {
         var lunchHours: Double = 0.5
 
         var DailyNorms: Int = 135
+        var OtNorms: Int = 19
         var TruckToShed: Int = 135
         var WagonToShed: Int = 115
         var WagonToPlatform: Int = 170
@@ -49,6 +50,10 @@ class RnN {
         var L133_165: Double = 0.0
         var L165Av: Double = 0.0
 
+        var firstSlab: Double = 0.0
+        var secondSlab: Double = 0.0
+        var thirdSlab: Double = 0.0
+        var fourthSlab: Double = 0.0
 
     }
 }

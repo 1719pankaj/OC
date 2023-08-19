@@ -170,6 +170,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
                     android:hint="Heads"
+                    tools:text="10"
                     android:inputType="number"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -231,6 +232,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
                     android:hint="Bags"
+                    tools:text="2500"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1227,12 +1229,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/second_30_slave_card_view">
 
                 <EditText
-                    android:id="@+id/third_15_slaveET"
+                    android:id="@+id/third_30_slaveET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rd 15"
+                    android:hint="3rd 30"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -1327,12 +1329,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/incentive_second_30_slave_card_view">
 
                 <EditText
-                    android:id="@+id/incentive_third_15_slaveET"
+                    android:id="@+id/incentive_third_30_slaveET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:background="@drawable/floating_bg"
-                    android:hint="3rd 15"
+                    android:hint="3rd 30"
                     android:inputType="date"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
