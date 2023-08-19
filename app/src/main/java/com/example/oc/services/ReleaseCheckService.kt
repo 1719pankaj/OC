@@ -18,6 +18,7 @@ import androidx.work.WorkerParameters
 import com.example.oc.MainActivity
 import com.example.oc.R
 import com.example.oc.data.RnN
+import com.example.oc.secrets.KeysAndSecrets
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,7 +29,7 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
 
     private val owner = "1719pankaj"
     private val repo = "OC"
-    private val token = "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"
+    private val token = KeysAndSecrets.githubToken
     val notificationId = "update_notiff"
 
 
