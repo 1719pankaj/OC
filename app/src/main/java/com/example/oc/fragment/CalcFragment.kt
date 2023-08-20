@@ -15,7 +15,9 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import com.example.oc.calculators.EquivalentBags
-import com.example.oc.calculators.NormsAndIncentive
+import com.example.oc.calculators.HeightCalc
+import com.example.oc.calculators.LeadCalc
+import com.example.oc.calculators.SlabCalc
 import com.example.oc.data.CnN
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
@@ -192,8 +194,53 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             EquivalentBags.updateHeadCount(binding)
         }
 
+        binding.h1112ET.addTextChangedListener {
+            CnN.H11_12 = binding.h1112ET.text.toString().toDoubleOrNull()?: 0.0
+            HeightCalc.heightTotal(binding)
+        }
+
+        binding.h1314ET.addTextChangedListener {
+            CnN.H13_14 = binding.h1314ET.text.toString().toDoubleOrNull()?: 0.0
+            HeightCalc.heightTotal(binding)
+        }
+
+        binding.h1516ET.addTextChangedListener {
+            CnN.H15_16 = binding.h1516ET.text.toString().toDoubleOrNull()?: 0.0
+            HeightCalc.heightTotal(binding)
+        }
+
+        binding.h1718ET.addTextChangedListener {
+            CnN.H17_18 = binding.h1718ET.text.toString().toDoubleOrNull()?: 0.0
+            HeightCalc.heightTotal(binding)
+        }
+
+        binding.h1920ET.addTextChangedListener {
+            CnN.H19_20 = binding.h1920ET.text.toString().toDoubleOrNull()?: 0.0
+            HeightCalc.heightTotal(binding)
+        }
+
+        binding.l6699ET.addTextChangedListener {
+            CnN.L66_99 = binding.l6699ET.text.toString().toDoubleOrNull()?: 0.0
+            LeadCalc.leadTotal(binding)
+        }
+
+        binding.l100132ET.addTextChangedListener {
+            CnN.L100_132 = binding.l100132ET.text.toString().toDoubleOrNull()?: 0.0
+            LeadCalc.leadTotal(binding)
+        }
+
+        binding.l133165ET.addTextChangedListener {
+            CnN.L133_165 = binding.l133165ET.text.toString().toDoubleOrNull()?: 0.0
+            LeadCalc.leadTotal(binding)
+        }
+
+        binding.l165PlusET.addTextChangedListener {
+            CnN.L165Av = binding.l165PlusET.text.toString().toDoubleOrNull()?: 0.0
+            LeadCalc.leadTotal(binding)
+        }
+
         binding.calculateBT.setOnClickListener {
-            inputIntegrityCheck(binding)
+            splitSlabs(binding)
         }
 
 
@@ -201,15 +248,26 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         return view
     }
 
-    private fun inputIntegrityCheck(binding: FragmentCalcBinding) {
+    private fun splitSlabs(binding: FragmentCalcBinding) {
 
         if (CnN.HeadCount <= 0){
             Toast.makeText(context, "Update Head Count", Toast.LENGTH_SHORT).show()
             return
         }
-        NormsAndIncentive.splitDailyBagsOTBags(binding)
+        SlabCalc.splitDailyBagsOTBags(binding)
         binding.dailyTV.text = CnN.DailyBags.toString()
         binding.overTV.text = CnN.OtHourBags.toString()
+
+        binding.d1.text = CnN.FirstSlabBags.toString()
+        binding.d2.text = CnN.SecondSlabBags.toString()
+        binding.d3.text = CnN.ThirdSlabBags.toString()
+        binding.d4.text = CnN.FourthSlabBags.toString()
+
+        binding.o1.text = CnN.OtFirstSlabBags.toString()
+        binding.o2.text = CnN.OtSecondSlabBags.toString()
+        binding.o3.text = CnN.OtThirdSlabBags.toString()
+        binding.o4.text = CnN.OtFourthSlabBags.toString()
+
 
 
     }
@@ -228,11 +286,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         val calendar = Calendar.getInstance()
         calendar.time = sdf.parse(currentDate)
 
-        if ( calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            binding.weekdaySwitch.setChecked(true)
-        } else {
-            binding.weekdaySwitch.setChecked(false)
-        }
+        binding.weekdaySwitch.isChecked = calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
         updateOvertime()
 
     }
@@ -310,7 +364,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 CnN.OtHours = timeDiff
                 binding.overTimeHoursTV.text = formatHoursMinutes(CnN.OtHours)
             }
-
         }
     }
 
