@@ -73,7 +73,7 @@ class RnN {
             perDayDANew = ((NewBasic * (NewDA / 100) * 12) / Days)
             perDayHRANew = ((NewBasic * (NewHRA / 100) * 12) / Days)
             perDayTotalNew = (perDayBasicNew + perDayDANew + perDayHRANew)
-            perHourTotal = ((perDayTotalNew / 7)*1.1)
+            perHourTotal = ((perDayTotalNew / workingHours)*1.1)
 
             H11_12 = perDayBags * 0.1
             H13_14 = perDayBags * 0.25

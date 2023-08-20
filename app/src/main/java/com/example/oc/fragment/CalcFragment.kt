@@ -48,6 +48,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.reset.setOnClickListener {
             Toast.makeText(context, "reset", Toast.LENGTH_SHORT).show()
             resetEditTexts(binding.frameLayout2)
+            resetOutputs()
+            CnN.resetCnN()
             setDefaults()
             setWeekdayCheck()
         }
@@ -240,35 +242,54 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         }
 
         binding.calculateBT.setOnClickListener {
-            splitSlabs(binding)
+            EquivalentBags.updateTotalBags(binding)
+            SlabCalc(binding)
+            LeadCalc.leadTotal(binding)
+            HeightCalc.heightTotal(binding)
+            MasterCalc(binding)
+            CnN.resetCnN()
         }
-
 
 
         return view
     }
 
-    private fun splitSlabs(binding: FragmentCalcBinding) {
+
+    private fun MasterCalc(binding: FragmentCalcBinding) {
+
+        CnN.MasterTotal = CnN.HTotal + CnN.LTotal + CnN.TotalIncentive
+
+        binding.masterTotalTV.text = CnN.MasterTotal.roundToTwoDecimalPlaces().toString()
+
+        binding.masterTotalCardView.visibility = View.VISIBLE
+
+    }
+
+    private fun SlabCalc(binding: FragmentCalcBinding) {
 
         if (CnN.HeadCount <= 0){
             Toast.makeText(context, "Update Head Count", Toast.LENGTH_SHORT).show()
             return
         }
         SlabCalc.splitDailyBagsOTBags(binding)
-        binding.dailyTV.text = CnN.DailyBags.toString()
-        binding.overTV.text = CnN.OtHourBags.toString()
+        binding.dailyTV.text = CnN.DailyBags.roundToTwoDecimalPlaces().toString()
+        binding.overTV.text = CnN.OtHourBags.roundToTwoDecimalPlaces().toString()
 
-        binding.d1.text = CnN.FirstSlabBags.toString()
-        binding.d2.text = CnN.SecondSlabBags.toString()
-        binding.d3.text = CnN.ThirdSlabBags.toString()
-        binding.d4.text = CnN.FourthSlabBags.toString()
+        binding.d1.text = CnN.FirstSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.d2.text = CnN.SecondSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.d3.text = CnN.ThirdSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.d4.text = CnN.FourthSlabBags.roundToTwoDecimalPlaces().toString()
 
-        binding.o1.text = CnN.OtFirstSlabBags.toString()
-        binding.o2.text = CnN.OtSecondSlabBags.toString()
-        binding.o3.text = CnN.OtThirdSlabBags.toString()
-        binding.o4.text = CnN.OtFourthSlabBags.toString()
+        binding.o1.text = CnN.OtFirstSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.o2.text = CnN.OtSecondSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.o3.text = CnN.OtThirdSlabBags.roundToTwoDecimalPlaces().toString()
+        binding.o4.text = CnN.OtFourthSlabBags.roundToTwoDecimalPlaces().toString()
 
+        CnN.TotalIncentive = CnN.OtIncentive + CnN.DailyIncentive
 
+        binding.otIncentiveTotalTV.text  = CnN.OtIncentive.roundToTwoDecimalPlaces().toString()
+        binding.dailyIncentiveTotalTV.text = CnN.DailyIncentive.roundToTwoDecimalPlaces().toString()
+        binding.totalIncentiveTotalTV.text = CnN.TotalIncentive.roundToTwoDecimalPlaces().toString()
 
     }
 
@@ -399,6 +420,17 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
     }
 
+    private fun resetOutputs() {
+        binding.masterTotalTV.text = 0.0.toString()
+        binding.masterTotalTV.visibility = View.GONE
+
+        binding.heightTotalTV.text = 0.0.toString()
+        binding.leadTotalTV.text = 0.0.toString()
+        binding.dailyIncentiveTotalTV.text = 0.0.toString()
+        binding.otIncentiveTotalTV.text = 0.0.toString()
+        binding.totalIncentiveTotalTV.text = 0.0.toString()
+    }
+
     fun setWeekdayCheck() {
 
         val date = binding.dateET.text
@@ -414,6 +446,11 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             binding.weekdaySwitch.setChecked(false)
             updateOvertime()
         }
+    }
+
+
+    fun Double.roundToTwoDecimalPlaces(): Double {
+        return String.format("%.2f", this).toDouble()
     }
 
 

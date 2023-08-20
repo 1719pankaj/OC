@@ -38,6 +38,8 @@ class SlabCalc {
                 CnN.SecondSlabBags = minOf(dailyBags - CnN.FirstSlabBags, valuePerVariable)
                 CnN.ThirdSlabBags = minOf(dailyBags - CnN.FirstSlabBags - CnN.SecondSlabBags, valuePerVariable)
                 CnN.FourthSlabBags = maxOf(dailyBags - CnN.FirstSlabBags - CnN.SecondSlabBags - CnN.ThirdSlabBags, 0.0)
+
+                CnN.DailyIncentive = CnN.FirstSlabBags * RnN.firstSlab + CnN.SecondSlabBags * RnN.secondSlab + CnN.ThirdSlabBags * RnN.thirdSlab + CnN.FourthSlabBags * RnN.fourthSlab
             }
         }
 
@@ -53,6 +55,8 @@ class SlabCalc {
                 CnN.OtSecondSlabBags = minOf(otBags - CnN.OtFirstSlabBags, valuePerVariable)
                 CnN.OtThirdSlabBags = minOf(otBags - CnN.OtFirstSlabBags - CnN.OtSecondSlabBags, valuePerVariable)
                 CnN.OtFourthSlabBags = maxOf(otBags - CnN.OtFirstSlabBags - CnN.OtSecondSlabBags - CnN.OtThirdSlabBags, 0.0)
+
+                CnN.OtIncentive = CnN.OtFirstSlabBags * RnN.firstSlab + CnN.OtSecondSlabBags * RnN.secondSlab + CnN.OtThirdSlabBags * RnN.thirdSlab + CnN.OtFourthSlabBags * RnN.fourthSlab
             }
         }
 
