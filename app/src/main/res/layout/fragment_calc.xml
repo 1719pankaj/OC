@@ -1525,11 +1525,10 @@
                 android:id="@+id/daily_incentive_total_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:layout_constraintBottom_toBottomOf="@+id/daily_incentive_total_labTV"
-                app:layout_constraintStart_toEndOf="@id/daily_incentive_total_labTV"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
                 app:layout_constraintTop_toTopOf="@id/daily_incentive_total_labTV"
                 >
                 <TextView
@@ -1564,11 +1563,10 @@
                 android:id="@+id/ot_incentive_total_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:layout_constraintBottom_toBottomOf="@+id/ot_incentive_total_labTV"
-                app:layout_constraintStart_toEndOf="@id/ot_incentive_total_labTV"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
                 app:layout_constraintTop_toTopOf="@id/ot_incentive_total_labTV"
                 >
                 <TextView
@@ -1599,16 +1597,54 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/daily_incentive_total_labTV" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ot_total_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ot_total_labTV"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toTopOf="@id/ot_total_labTV"
+                >
+                <TextView
+                    android:id="@+id/ot_totalTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:fontFamily="@font/janna_lt_bold"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ot_total_labTV"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:text="OT"
+                android:fontFamily="@font/janna_lt_bold"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ot_incentive_total_labTV" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/total_incentive_total_card_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
                 app:layout_constraintBottom_toBottomOf="@+id/total_incentive_total_labTV"
-                app:layout_constraintStart_toEndOf="@id/total_incentive_total_labTV"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
                 app:layout_constraintTop_toTopOf="@id/total_incentive_total_labTV"
                 >
                 <TextView
@@ -1631,13 +1667,13 @@
                 android:id="@+id/total_incentive_total_labTV"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginStart="16dp"
-                android:text="Total Incentive"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/janna_lt_bold"
+                android:text="Total Incentive"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ot_incentive_total_labTV" />
+                app:layout_constraintTop_toBottomOf="@id/ot_total_labTV" />
 
 
 
@@ -1668,9 +1704,9 @@
                 android:id="@+id/dailyTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_the_second" />
+                app:layout_constraintTop_toBottomOf="@+id/total_incentive_total_labTV" />
 
             <TextView
                 android:id="@+id/overTV"

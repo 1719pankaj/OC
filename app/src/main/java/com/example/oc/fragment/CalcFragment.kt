@@ -285,10 +285,11 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.o3.text = CnN.OtThirdSlabBags.roundToTwoDecimalPlaces().toString()
         binding.o4.text = CnN.OtFourthSlabBags.roundToTwoDecimalPlaces().toString()
 
-        CnN.TotalIncentive = CnN.OtIncentive + CnN.DailyIncentive
+        CnN.TotalIncentive = CnN.OtIncentive + CnN.DailyIncentive + CnN.OtWithinNorms
 
         binding.otIncentiveTotalTV.text  = CnN.OtIncentive.roundToTwoDecimalPlaces().toString()
         binding.dailyIncentiveTotalTV.text = CnN.DailyIncentive.roundToTwoDecimalPlaces().toString()
+        binding.otTotalTV.text = CnN.OtWithinNorms.roundToTwoDecimalPlaces().toString()
         binding.totalIncentiveTotalTV.text = CnN.TotalIncentive.roundToTwoDecimalPlaces().toString()
 
     }
@@ -428,6 +429,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.leadTotalTV.text = 0.0.toString()
         binding.dailyIncentiveTotalTV.text = 0.0.toString()
         binding.otIncentiveTotalTV.text = 0.0.toString()
+        binding.otTotalTV.text = 0.0.toString()
         binding.totalIncentiveTotalTV.text = 0.0.toString()
     }
 

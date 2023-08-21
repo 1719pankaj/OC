@@ -25,7 +25,6 @@ class SlabCalc {
 
         }
 
-
         private fun dailyIncentiveCalc() {
             if (CnN.DailyBags > RnN.DailyNorms) {
                 CnN.DailyAboveNorms = CnN.DailyBags - RnN.DailyNorms
@@ -44,9 +43,10 @@ class SlabCalc {
         }
 
         private fun otIncentiveCalc() {
+            CnN.OtWithinNorms = CnN.OtHours * RnN.perHourTotal
             if(CnN.OtHourBags > RnN.OTNomrs * CnN.OtHours) {
                 CnN.OtAboveNorms = CnN.OtHourBags - RnN.OTNomrs * CnN.OtHours
-                CnN.OtWithinNorms = RnN.OTNomrs * CnN.OtHours
+
 
                 val otBags = CnN.OtAboveNorms
                 val valuePerVariable = 5 * CnN.OtHours

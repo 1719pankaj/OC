@@ -79,6 +79,8 @@ class CnN {
 
             DailyWithinNorms = 0.0
             DailyAboveNorms = 0.0
+            OtWithinNorms = 0.0
+            OtAboveNorms = 0.0
 
             TotalBags = 0.0
             PerHeadBags = 0.0

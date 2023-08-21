@@ -12,7 +12,6 @@ class LeadCalc {
             CnN.LTotal = CnN.L66_99 * RnN.L66_99 + CnN.L100_132 * RnN.L100_132 + CnN.L133_165 * RnN.L133_165 + CnN.L165Av * RnN.L165Av
 
             binding.leadTotalTV.text = (CnN.LTotal/CnN.HeadCount).roundToTwoDecimalPlaces().toString()
-
         }
 
 
