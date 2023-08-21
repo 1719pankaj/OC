@@ -2,11 +2,13 @@ package com.example.oc.fragment
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
@@ -34,12 +36,16 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
     private val binding get() = _binding!!
 
+    lateinit var imm: InputMethodManager
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val view = binding.root
 
         binding.textView.text = RnN.Owner
+
+        imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         //Heavy shit, might break
         RnN.calculateDerivedValues()
@@ -52,6 +58,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             CnN.resetCnN()
             setDefaults()
             setWeekdayCheck()
+
+            autoFocusHead()
         }
 
 
@@ -104,141 +112,183 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         //Truck to Shed
         binding.truckToShedTV.addTextChangedListener {
             EquivalentBags.truckToShedCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.truckToShedOowTV.addTextChangedListener {
             EquivalentBags.truckToShedCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Wagon to Shed
         binding.wagonToShedTV.addTextChangedListener {
             EquivalentBags.wagonToShedCalc(binding)
+            setResultViewVisibility(false)
+
         }
         binding.wagonToShedOowTV.addTextChangedListener {
             EquivalentBags.wagonToShedCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Wagon to Platform
         binding.wagonToPlatformTV.addTextChangedListener {
             EquivalentBags.wagonToPlatformCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.wagonToPlatformOowTV.addTextChangedListener {
             EquivalentBags.wagonToPlatformCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Platform to Shed
         binding.platformToShedTV.addTextChangedListener {
             EquivalentBags.platformToShedCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.platformToShedOowTV.addTextChangedListener {
             EquivalentBags.platformToShedCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Shed to Truck
         binding.shedToTruckTV.addTextChangedListener {
             EquivalentBags.shedToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.shedToTruckOowTV.addTextChangedListener {
             EquivalentBags.shedToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Truck to Platform
         binding.truckToPlatformTV.addTextChangedListener {
             EquivalentBags.truckToPlatformCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.truckToPlatformOowTV.addTextChangedListener {
             EquivalentBags.truckToPlatformCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Shed to Wagon
         binding.shedToWagonTV.addTextChangedListener {
             EquivalentBags.shedToWagonCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.shedToWagonOowTV.addTextChangedListener {
             EquivalentBags.shedToWagonCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Wagon to Truck
         binding.wagonToTruckTV.addTextChangedListener {
             EquivalentBags.wagonToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.wagonToTruckOowTV.addTextChangedListener {
             EquivalentBags.wagonToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Refilling
         binding.refillingTV.addTextChangedListener {
             EquivalentBags.refillingCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Restacking
         binding.restackingTV.addTextChangedListener {
             EquivalentBags.restackingCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.restackingOowTV.addTextChangedListener {
             EquivalentBags.restackingCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Weightment
         binding.weightmentTV.addTextChangedListener {
             EquivalentBags.weightmentCalc(binding)
+            setResultViewVisibility(false)
         }
 
         //Truck to Truck
         binding.truckToTruckTV.addTextChangedListener {
             EquivalentBags.truckToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
         binding.truckToTruckOowTV.addTextChangedListener {
             EquivalentBags.truckToTruckCalc(binding)
+            setResultViewVisibility(false)
         }
 
 
         binding.headCountET.addTextChangedListener {
             EquivalentBags.updateHeadCount(binding)
+            setResultViewVisibility(false)
         }
 
         binding.h1112ET.addTextChangedListener {
             CnN.H11_12 = binding.h1112ET.text.toString().toDoubleOrNull()?: 0.0
             HeightCalc.heightTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.h1314ET.addTextChangedListener {
             CnN.H13_14 = binding.h1314ET.text.toString().toDoubleOrNull()?: 0.0
             HeightCalc.heightTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.h1516ET.addTextChangedListener {
             CnN.H15_16 = binding.h1516ET.text.toString().toDoubleOrNull()?: 0.0
             HeightCalc.heightTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.h1718ET.addTextChangedListener {
             CnN.H17_18 = binding.h1718ET.text.toString().toDoubleOrNull()?: 0.0
             HeightCalc.heightTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.h1920ET.addTextChangedListener {
             CnN.H19_20 = binding.h1920ET.text.toString().toDoubleOrNull()?: 0.0
             HeightCalc.heightTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.l6699ET.addTextChangedListener {
             CnN.L66_99 = binding.l6699ET.text.toString().toDoubleOrNull()?: 0.0
             LeadCalc.leadTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.l100132ET.addTextChangedListener {
             CnN.L100_132 = binding.l100132ET.text.toString().toDoubleOrNull()?: 0.0
             LeadCalc.leadTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.l133165ET.addTextChangedListener {
             CnN.L133_165 = binding.l133165ET.text.toString().toDoubleOrNull()?: 0.0
             LeadCalc.leadTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.l165PlusET.addTextChangedListener {
             CnN.L165Av = binding.l165PlusET.text.toString().toDoubleOrNull()?: 0.0
             LeadCalc.leadTotal(binding)
+
+            setResultViewVisibility(false)
         }
 
         binding.calculateBT.setOnClickListener {
@@ -254,8 +304,17 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         return view
     }
 
+    private fun autoFocusHead() {
+        binding.headCountET.requestFocus()
+        imm.showSoftInput(binding.headCountET, InputMethodManager.SHOW_IMPLICIT)
+    }
+
 
     private fun MasterCalc(binding: FragmentCalcBinding) {
+
+        if(imm.isActive && CnN.HeadCount > 0){
+            imm.hideSoftInputFromWindow(binding.calculateBT.windowToken, 0)
+        }
 
         CnN.MasterTotal = CnN.HTotal + CnN.LTotal + CnN.TotalIncentive
 
@@ -268,7 +327,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
     private fun SlabCalc(binding: FragmentCalcBinding) {
 
         if (CnN.HeadCount <= 0){
-            Toast.makeText(context, "Update Head Count", Toast.LENGTH_SHORT).show()
+            autoFocusHead()
             return
         }
         SlabCalc.splitDailyBagsOTBags(binding)
@@ -423,7 +482,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
 
     private fun resetOutputs() {
         binding.masterTotalTV.text = 0.0.toString()
-        binding.masterTotalTV.visibility = View.GONE
+        setResultViewVisibility(false)
 
         binding.heightTotalTV.text = 0.0.toString()
         binding.leadTotalTV.text = 0.0.toString()
@@ -431,6 +490,14 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.otIncentiveTotalTV.text = 0.0.toString()
         binding.otTotalTV.text = 0.0.toString()
         binding.totalIncentiveTotalTV.text = 0.0.toString()
+    }
+
+    fun setResultViewVisibility(boolean: Boolean) {
+        if (boolean) {
+            binding.masterTotalCardView.visibility = View.VISIBLE
+            return
+        }
+        binding.masterTotalCardView.visibility = View.GONE
     }
 
     fun setWeekdayCheck() {

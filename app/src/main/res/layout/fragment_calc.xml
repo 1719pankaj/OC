@@ -1553,7 +1553,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginStart="16dp"
-                android:text="Daily Incentive"
+                android:text="Incentive"
                 android:fontFamily="@font/janna_lt_bold"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
