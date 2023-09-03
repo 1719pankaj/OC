@@ -5,9 +5,8 @@ import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentCalcBinding
 
 class SlabCalc {
+
     companion object{
-
-
 
         fun splitDailyBagsOTBags(binding: FragmentCalcBinding) {
 
@@ -21,7 +20,7 @@ class SlabCalc {
             CnN.DailyBags = CnN.PerHeadBags - CnN.OtHourBags
 
             if(CnN.DailyBags > 0) dailyIncentiveCalc()
-            if(CnN.OtHourBags > 0) otIncentiveCalc()
+            if(CnN.OtHours > 0) OcCalc.otIncentiveCalc()
 
         }
 
@@ -41,25 +40,6 @@ class SlabCalc {
                 CnN.DailyIncentive = CnN.FirstSlabBags * RnN.firstSlab + CnN.SecondSlabBags * RnN.secondSlab + CnN.ThirdSlabBags * RnN.thirdSlab + CnN.FourthSlabBags * RnN.fourthSlab
             }
         }
-
-        private fun otIncentiveCalc() {
-            CnN.OtWithinNorms = CnN.OtHours * RnN.perHourTotal
-            if(CnN.OtHourBags > RnN.OTNomrs * CnN.OtHours) {
-                CnN.OtAboveNorms = CnN.OtHourBags - RnN.OTNomrs * CnN.OtHours
-
-
-                val otBags = CnN.OtAboveNorms
-                val valuePerVariable = 5 * CnN.OtHours
-
-                CnN.OtFirstSlabBags = minOf(otBags, valuePerVariable)
-                CnN.OtSecondSlabBags = minOf(otBags - CnN.OtFirstSlabBags, valuePerVariable)
-                CnN.OtThirdSlabBags = minOf(otBags - CnN.OtFirstSlabBags - CnN.OtSecondSlabBags, valuePerVariable)
-                CnN.OtFourthSlabBags = maxOf(otBags - CnN.OtFirstSlabBags - CnN.OtSecondSlabBags - CnN.OtThirdSlabBags, 0.0)
-
-                CnN.OtIncentive = CnN.OtFirstSlabBags * RnN.firstSlab + CnN.OtSecondSlabBags * RnN.secondSlab + CnN.OtThirdSlabBags * RnN.thirdSlab + CnN.OtFourthSlabBags * RnN.fourthSlab
-            }
-        }
-
 
     }
 }

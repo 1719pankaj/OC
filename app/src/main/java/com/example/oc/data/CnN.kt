@@ -3,8 +3,6 @@ package com.example.oc.data
 class CnN {
     companion object {
 
-        var MasterTotal: Double = 0.0
-
         var TotalIncentive: Double = 0.0
         var DailyIncentive: Double = 0.0
         var OtIncentive: Double = 0.0
@@ -84,6 +82,9 @@ class CnN {
 
             TotalBags = 0.0
             PerHeadBags = 0.0
+
+            HTotal = 0.0
+            LTotal = 0.0
 
         }
     }

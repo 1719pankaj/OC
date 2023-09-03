@@ -1,5 +1,6 @@
 package com.example.oc.fragment
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
@@ -19,6 +20,7 @@ import androidx.core.widget.addTextChangedListener
 import com.example.oc.calculators.EquivalentBags
 import com.example.oc.calculators.HeightCalc
 import com.example.oc.calculators.LeadCalc
+import com.example.oc.calculators.OcCalc
 import com.example.oc.calculators.SlabCalc
 import com.example.oc.data.CnN
 import com.example.oc.data.RnN
@@ -58,7 +60,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             CnN.resetCnN()
             setDefaults()
             setWeekdayCheck()
-
             autoFocusHead()
         }
 
@@ -98,8 +99,8 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
                 updateOvertime()
             }
 
-            val switchText = if (CnN.weekDay) "Holiday" else "Workday"
-            binding.weekdaySwitch.text = switchText
+//            val switchText = if (CnN.weekDay) "Holiday" else "Workday"
+            binding.weekdaySwitch.text = "Holiday"
         }
 
         setDefaults()
@@ -309,16 +310,20 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         imm.showSoftInput(binding.headCountET, InputMethodManager.SHOW_IMPLICIT)
     }
 
-
     private fun MasterCalc(binding: FragmentCalcBinding) {
 
         if(imm.isActive && CnN.HeadCount > 0){
             imm.hideSoftInputFromWindow(binding.calculateBT.windowToken, 0)
         }
 
-        CnN.MasterTotal = CnN.HTotal + CnN.LTotal + CnN.TotalIncentive
+        CnN.DailyIncentive += CnN.HTotal + CnN.LTotal
+        CnN.TotalIncentive = CnN.OtIncentive + CnN.DailyIncentive + CnN.OtWithinNorms
 
-        binding.masterTotalTV.text = CnN.MasterTotal.roundToTwoDecimalPlaces().toString()
+        binding.otIncentiveTotalTV.text  = CnN.OtIncentive.roundToTwoDecimalPlaces().toString()
+        binding.dailyIncentiveTotalTV.text = CnN.DailyIncentive.roundToTwoDecimalPlaces().toString()
+        binding.otTotalTV.text = CnN.OtWithinNorms.roundToTwoDecimalPlaces().toString()
+
+        binding.masterTotalTV.text = "Gross Incentive: ${CnN.TotalIncentive.roundToTwoDecimalPlaces()}"
 
         binding.masterTotalCardView.visibility = View.VISIBLE
 
@@ -343,13 +348,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.o2.text = CnN.OtSecondSlabBags.roundToTwoDecimalPlaces().toString()
         binding.o3.text = CnN.OtThirdSlabBags.roundToTwoDecimalPlaces().toString()
         binding.o4.text = CnN.OtFourthSlabBags.roundToTwoDecimalPlaces().toString()
-
-        CnN.TotalIncentive = CnN.OtIncentive + CnN.DailyIncentive + CnN.OtWithinNorms
-
-        binding.otIncentiveTotalTV.text  = CnN.OtIncentive.roundToTwoDecimalPlaces().toString()
-        binding.dailyIncentiveTotalTV.text = CnN.DailyIncentive.roundToTwoDecimalPlaces().toString()
-        binding.otTotalTV.text = CnN.OtWithinNorms.roundToTwoDecimalPlaces().toString()
-        binding.totalIncentiveTotalTV.text = CnN.TotalIncentive.roundToTwoDecimalPlaces().toString()
 
     }
 
@@ -489,7 +487,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         binding.dailyIncentiveTotalTV.text = 0.0.toString()
         binding.otIncentiveTotalTV.text = 0.0.toString()
         binding.otTotalTV.text = 0.0.toString()
-        binding.totalIncentiveTotalTV.text = 0.0.toString()
     }
 
     fun setResultViewVisibility(boolean: Boolean) {
