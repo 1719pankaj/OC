@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
+import com.example.oc.MainActivity
 import com.example.oc.calculators.EquivalentBags
 import com.example.oc.calculators.HeightCalc
 import com.example.oc.calculators.LeadCalc

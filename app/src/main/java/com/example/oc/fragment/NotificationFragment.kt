@@ -41,7 +41,7 @@ class NotificationFragment : Fragment() {
         }
 
         binding.agreeNotificationBT.setOnClickListener {
-            askForNotificationPermission()
+                askForNotificationPermission()
         }
 
         return view

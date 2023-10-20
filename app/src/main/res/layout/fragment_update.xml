@@ -115,35 +115,6 @@
                 app:layout_constraintStart_toStartOf="@+id/update_available_HD"
                 app:layout_constraintTop_toBottomOf="@+id/update_available_HD" />
 
-            <Button
-                android:id="@+id/installBT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#eaddff"
-                android:drawableLeft="@drawable/ic_install"
-                android:scaleX="0.9"
-                android:scaleY="0.9"
-                android:text="Install"
-                android:textColor="@color/black"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@+id/downloadBT"
-                app:layout_constraintTop_toBottomOf="@+id/downloadBT"
-                tools:visibility="visible" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="0dp"
-                android:indeterminate="true"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/downloadBT"
-                app:layout_constraintStart_toStartOf="@+id/downloadBT"
-                app:layout_constraintTop_toBottomOf="@+id/downloadBT"
-                android:visibility="gone"
-                tools:visibility="visible"/>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

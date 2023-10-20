@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.oc.MainActivity
 import com.example.oc.data.RnN
 import com.example.oc.databinding.FragmentRateBinding
 
@@ -55,7 +56,7 @@ class RateFragment : Fragment() {
         binding.newBasicET.setText(String.format("%.0f", RnN.NewBasic))
         binding.newDaET.setText(RnN.NewDA.toString())
         binding.newHraET.setText(RnN.NewHRA.toString())
-
+        ;
         RnN.calculateDerivedValues()
 
         binding.upperBasicTV.text = RnN.perDayBasic.roundToTwoDecimalPlaces().toString()
@@ -129,6 +130,8 @@ class RateFragment : Fragment() {
         RnN.NewBasic = binding.newBasicET.text.toString().toDouble()
         RnN.NewDA = binding.newDaET.text.toString().toDouble()
         RnN.NewHRA = binding.newHraET.text.toString().toDouble()
+        MainActivity.setSharedPrefs()
+
     }
 
 

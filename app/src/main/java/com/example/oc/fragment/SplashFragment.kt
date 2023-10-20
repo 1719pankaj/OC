@@ -1,6 +1,7 @@
 package com.example.oc.fragment
 
 import android.content.Context.MODE_PRIVATE
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -33,9 +34,12 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(R.id.action_splashFragment2_to_itsMyFirstTime)
             } else {
                 //check if notifications are granted
-                if(!notificationsAreEnabled())
-                    findNavController().navigate(R.id.action_splashFragment2_to_notificationFragment)
-                else
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (!notificationsAreEnabled())
+                        findNavController().navigate(R.id.action_splashFragment2_to_notificationFragment)
+                    else
+                        findNavController().navigate(R.id.action_splashFragment2_to_mainFragment)
+                } else
                     findNavController().navigate(R.id.action_splashFragment2_to_mainFragment)
             }
         }, 2000)

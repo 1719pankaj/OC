@@ -1,29 +1,25 @@
 package com.example.oc.services
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.work.Worker
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import androidx.work.WorkerParameters
 import com.example.oc.MainActivity
 import com.example.oc.R
+import com.example.oc.UpdateActivity
 import com.example.oc.data.RnN
 import com.example.oc.secrets.KeysAndSecrets
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray
-import java.io.File
 
 class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
@@ -52,8 +48,6 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
                    val latestRelease = releasesJson.getJSONObject(0)
                    val latestVersion = latestRelease.getString("tag_name")
 
-                   clearAppDataDir(latestVersion)
-
                    if (latestVersion > RnN.CurrentVersion) {
                        showNotification(
                            "New Release Available",
@@ -77,8 +71,11 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
             .setContentText(message)
             .setPriority(NotificationCompat.PRIORITY_MAX)
 
-        val intent = Intent(applicationContext, MainActivity::class.java)
+        val intent = Intent(applicationContext, UpdateActivity::class.java)
         intent.action = "latest_release$latestVersion"
+
+        // Pass any data to the Fragment through the intent extras
+        intent.putExtra("direct_download_flag", "dflg")
 
         val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
@@ -100,45 +97,6 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
         }
     }
 
-    fun clearAppDataDir(currentVersion: String) {
-        val appDataDir = applicationContext.getExternalFilesDir("downloads")
 
-        if (appDataDir != null) {
-            val files = appDataDir.listFiles()
-            if (files != null) {
-                val versionCodePattern = """^$currentVersion(-\d+)?\.apk$""".toRegex()
-                val currentVersionFiles = mutableSetOf<String>()
-
-                // Identify current version files and older files
-                val filesToDelete = mutableListOf<File>()
-                for (file in files) {
-                    if (file.isFile) {
-                        val fileName = file.name
-                        if (fileName.matches(versionCodePattern)) {
-                            if (fileName == "$currentVersion.apk") {
-                                currentVersionFiles.add(fileName)
-                            } else if (fileName.startsWith("$currentVersion-")) {
-                                val versionNumber = fileName.substring(currentVersion.length + 1, fileName.lastIndexOf('.'))
-                                if (versionNumber.toIntOrNull() != null) {
-                                    filesToDelete.add(file)
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // Delete older files and duplicates of current version
-                for (file in filesToDelete) {
-                    file.deleteRecursively()
-                }
-
-                // Delete duplicate current version files
-                currentVersionFiles.forEach { fileName ->
-                    files.filter { it.name == fileName && it != filesToDelete }
-                        .forEach { it.delete() }
-                }
-            }
-        }
-    }
 
 }

@@ -4,6 +4,7 @@ import android.app.DownloadManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,7 +14,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import com.example.oc.data.RnN
 import com.example.oc.databinding.ActivityMainBinding
+import com.example.oc.fragment.UpdateFragment
 import com.example.oc.services.ReleaseCheckWorker
 import java.io.File
 
@@ -21,6 +24,7 @@ import java.io.File
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var sharedPreferences: SharedPreferences
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,26 +33,59 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+//        sharedPreferences = getSharedPreferences("OcPrefs", Context.MODE_PRIVATE)
+        getSharedPrefs()
+
         createNotificationChannel()
 
-        if (intent.action?.startsWith("latest_release") == true) {
-            // Initiate the download here
-            val version = intent.action!!.subSequence(14, intent.action!!.length)
-            val downloadUrl = "https://github.com/1719pankaj/OC/releases/download/$version/$version.apk"
-            val title = "OC"
-            val description = "Downloading Update"
-            downloadWithDownloadManager(this, downloadUrl, title, description, version.toString())
-        } else {
-            try {
-                val workRequest = OneTimeWorkRequest.Builder(ReleaseCheckWorker::class.java).build()
-                WorkManager.getInstance(this).enqueue(workRequest)
-            } catch (e: Exception) {
-                Log.e("ReleaseCheckRunner", "Error: ${e.message}")
-                Toast.makeText(this, "Network not available\nCan't check for updates.", Toast.LENGTH_SHORT).show()
-            }
+
+        try {
+            val workRequest = OneTimeWorkRequest.Builder(ReleaseCheckWorker::class.java).build()
+            WorkManager.getInstance(this).enqueue(workRequest)
+        } catch (e: Exception) {
+            Log.e("ReleaseCheckRunner", "Error: ${e.message}")
+            Toast.makeText(this, "Network not available\nCan't check for updates.", Toast.LENGTH_SHORT).show()
         }
     }
 
+
+    fun getSharedPrefs() {
+        sharedPreferences = getSharedPreferences("OcPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences
+
+        RnN.OldBasic = editor.getDouble("OldBasic", RnN.OldBasic)
+        RnN.OldDA = editor.getDouble("OldDA", RnN.OldDA)
+        RnN.OldHRA = editor.getDouble("OldHRA", RnN.OldHRA)
+        RnN.Days = editor.getInt("Days", RnN.Days)
+        RnN.NewBasic = editor.getDouble("NewBasic", RnN.NewBasic)
+        RnN.NewDA = editor.getDouble("NewDA", RnN.NewDA)
+        RnN.NewHRA = editor.getDouble("NewHRA", RnN.NewHRA)
+    }
+
+    fun setSharedPrefs() {
+        sharedPreferences = getSharedPreferences("OcPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putDouble("OldBasic", RnN.OldBasic)
+        editor.putDouble("OldDA", RnN.OldDA)
+        editor.putDouble("OldHRA", RnN.OldHRA)
+        editor.putInt("Days", RnN.Days)
+        editor.putDouble("NewBasic", RnN.NewBasic)
+        editor.putDouble("NewDA", RnN.NewDA)
+        editor.putDouble("NewHRA", RnN.NewHRA)
+
+        editor.apply()
+    }
+
+
+
+    fun SharedPreferences.Editor.putDouble(key: String, double: Double) {
+        putLong(key, java.lang.Double.doubleToRawLongBits(double))
+    }
+
+    fun SharedPreferences.getDouble(key: String, default: Double): Double {
+        return java.lang.Double.longBitsToDouble(getLong(key, java.lang.Double.doubleToRawLongBits(default)))
+    }
 
 
 
@@ -63,27 +100,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun downloadWithDownloadManager(context: Context, url: String, title: String, description: String, version: String) {
-        val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-
-        val request = DownloadManager.Request(Uri.parse(url))
-            .setTitle(title)
-            .setDescription(description)
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-
-        // Get the app's private data directory
-        val appDataDir = context.getExternalFilesDir(null)
-
-        val downloadsDir = File(appDataDir, "downloads")
-
-        if (!downloadsDir.exists())
-            downloadsDir.mkdirs()
-
-        val fileName = "$version.apk"
-        val destinationFile = File(downloadsDir, fileName)
-        request.setDestinationUri(Uri.fromFile(destinationFile))
-        downloadManager.enqueue(request)
+    companion object {
+        fun setSharedPrefs() {
+            MainActivity().setSharedPrefs()
+        }
     }
 
 }
