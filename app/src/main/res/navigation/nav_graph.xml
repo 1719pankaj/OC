@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_calcFragment"
             app:destination="@id/calcFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment2"
@@ -74,6 +77,11 @@
             app:popUpTo="@id/notificationFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.oc.fragment.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" />
 
 
 </navigation>

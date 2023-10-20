@@ -39,8 +39,7 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("https://api.github.com/repos/$owner/$repo/releases")
-                .addHeader("Authorization", "token $token")
+                .url("https://api.github.com/repos/1719pankaj/OC/releases")
                 .build()
 
             //wrap the next 2 lines in try/catch
