@@ -1,5 +1,6 @@
 package com.example.oc.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,24 @@ class RateFragment : Fragment() {
     private var _binding: FragmentRateBinding? = null
 
     private val binding get() = _binding!!
+
+    private var callback: MyCallback? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        // Check if the context (activity) implements the interface
+        if (context is MyCallback) {
+            callback = context
+        } else {
+            throw RuntimeException("$context must implement MyCallback")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback = null
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentRateBinding.inflate(inflater, container, false)
@@ -56,7 +75,17 @@ class RateFragment : Fragment() {
         binding.newBasicET.setText(String.format("%.0f", RnN.NewBasic))
         binding.newDaET.setText(RnN.NewDA.toString())
         binding.newHraET.setText(RnN.NewHRA.toString())
-        ;
+
+        updateDerivedValueViews()
+
+        binding.updateBT.setOnClickListener {
+            editRates()
+        }
+
+        return view
+    }
+
+    private fun updateDerivedValueViews() {
         RnN.calculateDerivedValues()
 
         binding.upperBasicTV.text = RnN.perDayBasic.roundToTwoDecimalPlaces().toString()
@@ -89,17 +118,10 @@ class RateFragment : Fragment() {
         binding.secondSlabTV.text = RnN.secondSlab.roundToTwoDecimalPlaces().toString()
         binding.thirdSlabTV.text = RnN.thirdSlab.roundToTwoDecimalPlaces().toString()
         binding.fourthSlabTV.text = RnN.fourthSlab.roundToTwoDecimalPlaces().toString()
-
-
-        binding.updateBT.setOnClickListener {
-            editRates()
-        }
-
-        return view
     }
 
     private fun editRates() {
-        if (binding.updateBT.text == "Update") {
+        if (binding.updateBT.text == "Edit") {
             binding.oldBasicET.isEnabled = true
             binding.oldDaET.isEnabled = true
             binding.oldHraET.isEnabled = true
@@ -116,7 +138,7 @@ class RateFragment : Fragment() {
             binding.newBasicET.isEnabled = false
             binding.newDaET.isEnabled = false
             binding.newHraET.isEnabled = false
-            binding.updateBT.text = "Update"
+            binding.updateBT.text = "Edit"
             updateRates()
             RnN.calculateDerivedValues()
         }
@@ -130,15 +152,23 @@ class RateFragment : Fragment() {
         RnN.NewBasic = binding.newBasicET.text.toString().toDouble()
         RnN.NewDA = binding.newDaET.text.toString().toDouble()
         RnN.NewHRA = binding.newHraET.text.toString().toDouble()
-        MainActivity.setSharedPrefs()
+        updateDerivedValueViews()
+        setSharedPrefs()
 
     }
 
+    fun setSharedPrefs() {
+        callback?.setSharedPrefsx()
+    }
 
 
     fun Double.roundToTwoDecimalPlaces(): Double {
         return String.format("%.2f", this).toDouble()
     }
 
+}
+
+interface MyCallback {
+    fun setSharedPrefsx()
 }
 

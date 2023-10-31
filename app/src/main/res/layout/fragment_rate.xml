@@ -1158,7 +1158,7 @@
         android:id="@+id/updateBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update"
+        android:text="Edit"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp" />
 

@@ -53,7 +53,7 @@ class UpdateFragment : Fragment() {
 
     private fun DownloadAndInstall() {
         val downloadApk = DownloadApk(requireContext())
-        downloadApk.startDownloadingApk(download_url)
+        downloadApk.startDownloadingApk(download_url, "delete_me")
     }
 
     private fun UpdateRunner() {

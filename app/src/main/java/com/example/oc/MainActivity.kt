@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -16,12 +17,16 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.example.oc.data.RnN
 import com.example.oc.databinding.ActivityMainBinding
+import com.example.oc.fragment.MyCallback
 import com.example.oc.fragment.UpdateFragment
 import com.example.oc.services.ReleaseCheckWorker
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.File
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MyCallback {
 
     private lateinit var binding: ActivityMainBinding
     lateinit var sharedPreferences: SharedPreferences
@@ -37,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         getSharedPrefs()
 
         createNotificationChannel()
+
+        deleteObsoletePackages()
 
 
         try {
@@ -62,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         RnN.NewHRA = editor.getDouble("NewHRA", RnN.NewHRA)
     }
 
-    fun setSharedPrefs() {
+    override fun setSharedPrefsx() {
         sharedPreferences = getSharedPreferences("OcPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
@@ -78,7 +85,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     fun SharedPreferences.Editor.putDouble(key: String, double: Double) {
         putLong(key, java.lang.Double.doubleToRawLongBits(double))
     }
@@ -86,7 +92,6 @@ class MainActivity : AppCompatActivity() {
     fun SharedPreferences.getDouble(key: String, default: Double): Double {
         return java.lang.Double.longBitsToDouble(getLong(key, java.lang.Double.doubleToRawLongBits(default)))
     }
-
 
 
 
@@ -100,10 +105,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        fun setSharedPrefs() {
-            MainActivity().setSharedPrefs()
+    fun deleteObsoletePackages() {
+        runBlocking {
+            launch(Dispatchers.IO) {
+                val downloadDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+
+                if (downloadDirectory.exists() && downloadDirectory.isDirectory) {
+                    val files = downloadDirectory.listFiles()
+
+                    if (files != null) {
+                        for (file in files) {
+                            if (file.isFile) {
+                                val fileName = file.name
+                                if (fileName.matches(Regex("delete_me( \\(\\d+\\))?\\.apk"))) {
+                                    if (file.delete()) {
+                                        println("Deleted: $fileName")
+                                    } else {
+                                        println("Failed to delete: $fileName")
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        println("Failed to list files in the download directory.")
+                    }
+                } else {
+                    println("Download directory does not exist or is not a directory.")
+                }
+            }
         }
     }
+
 
 }
