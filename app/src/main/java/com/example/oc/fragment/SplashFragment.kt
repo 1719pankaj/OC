@@ -27,8 +27,6 @@ class SplashFragment : Fragment() {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.textView.text = RnN.Owner
-
         Handler().postDelayed({
             if (getFirstTime()) {
                 findNavController().navigate(R.id.action_splashFragment2_to_itsMyFirstTime)

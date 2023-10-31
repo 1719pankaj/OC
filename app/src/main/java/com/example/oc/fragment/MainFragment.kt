@@ -52,8 +52,6 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_updateFragment)
         }
 
-        binding.textView.text = RnN.Owner
-
 
         return view
     }

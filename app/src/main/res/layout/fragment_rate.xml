@@ -326,14 +326,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/new_hra_card_view" />
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Owner Name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/wagon_to_shed_labTV"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"

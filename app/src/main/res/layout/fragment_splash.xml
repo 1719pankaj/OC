@@ -6,14 +6,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SplashFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Owner Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </FrameLayout>

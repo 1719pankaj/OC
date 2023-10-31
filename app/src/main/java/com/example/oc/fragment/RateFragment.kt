@@ -40,7 +40,6 @@ class RateFragment : Fragment() {
         _binding = FragmentRateBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.textView.text = RnN.Owner
 
         binding.oldBasicET.isEnabled = false
         binding.oldDaET.isEnabled = false
