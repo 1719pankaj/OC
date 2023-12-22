@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment2"
@@ -82,6 +85,11 @@
         android:name="com.example.oc.fragment.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.oc.calculators.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 
 
 </navigation>

@@ -1645,7 +1645,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:text="Workday"
+                android:text="Holiday"
                 app:layout_constraintBottom_toBottomOf="@+id/end_time_card_view"
                 app:layout_constraintStart_toEndOf="@+id/end_time_card_view"
                 app:layout_constraintTop_toTopOf="@+id/end_time_card_view"

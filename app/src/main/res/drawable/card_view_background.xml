@@ -1,0 +1,18 @@
+<!-- res/drawable/card_view_background.xml -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="#64B5F6" /> <!-- Change to the pressed color -->
+        </shape>
+    </item>
+    <!-- Default state -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="#2196F3" /> <!-- Change to the default color -->
+        </shape>
+    </item>
+</selector>

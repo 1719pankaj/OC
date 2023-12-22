@@ -195,6 +195,5 @@ class EquivalentBags {
             binding.textView.text = CnN.PerHeadBags.toString()
 
         }
-
     }
 }
