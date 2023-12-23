@@ -11,11 +11,9 @@ import androidx.work.Worker
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import androidx.work.WorkerParameters
-import com.example.oc.MainActivity
 import com.example.oc.R
 import com.example.oc.UpdateActivity
 import com.example.oc.data.RnN
-import com.example.oc.secrets.KeysAndSecrets
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
