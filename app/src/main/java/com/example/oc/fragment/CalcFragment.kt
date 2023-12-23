@@ -335,8 +335,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
             return
         }
         SlabCalc.splitDailyBagsOTBags(binding)
-        binding.dailyTV.text = CnN.DailyBags.roundToTwoDecimalPlaces().toString()
-        binding.overTV.text = CnN.OtHourBags.roundToTwoDecimalPlaces().toString()
     }
 
     private fun setDefaults() {

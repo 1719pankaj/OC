@@ -192,7 +192,6 @@ class EquivalentBags {
                     CnN.WagonToShedTotal + CnN.TruckToShedTotal
             binding.totalBagsTV.text = DecimalFormat("#.##").format(CnN.TotalBags)
             CnN.PerHeadBags = CnN.TotalBags/CnN.HeadCount
-//            binding.textView.text = CnN.PerHeadBags.toString()
 
         }
     }

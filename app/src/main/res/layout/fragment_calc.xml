@@ -1622,10 +1622,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginBottom="60dp"
                 android:text="OT"
                 android:fontFamily="@font/janna_lt_bold"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ot_incentive_total_labTV" />
 
 
@@ -1654,22 +1656,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintGuide_begin="162dp"
                 app:layout_constraintStart_toStartOf="parent" />
-
-
-            <TextView
-                android:id="@+id/dailyTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ot_total_labTV" />
-
-            <TextView
-                android:id="@+id/overTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dailyTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
