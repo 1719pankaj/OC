@@ -1,0 +1,36 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - master  # Change this to the branch you want to trigger the workflow on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '18'
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+  publish:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: Upload release APK
+        uses: softprops/action-gh-release@v1
+        with:
+          files: app/build/outputs/apk/debug/app-debug.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
