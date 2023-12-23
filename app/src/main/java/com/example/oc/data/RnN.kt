@@ -2,7 +2,7 @@ package com.example.oc.data
 
 class RnN {
     companion object {
-        var Owner: String = "MTL"
+        var Owner: String = "MTLI"
         var CurrentVersion: String = "1.0.01rc"
         var MaalkiKaNumber: String = "9883293901"
 
