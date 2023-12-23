@@ -357,7 +357,7 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        // month is zero-based, so add 1 to match the standard month format
+        // month is zero-based, so add 1 to match the standard month format Placeholoder
         val formattedMonth = month + 1
         val selectedDate = "$dayOfMonth/$formattedMonth/$year"
         binding.dateET.setText(selectedDate)
