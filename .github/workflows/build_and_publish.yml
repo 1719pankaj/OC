@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - master  # Change this to the branch you want to trigger the workflow on
+      - main  # Change this to the branch you want to trigger the workflow on
 
 jobs:
   build:
