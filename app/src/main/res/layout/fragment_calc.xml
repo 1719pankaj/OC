@@ -19,14 +19,7 @@
             tools:context=".fragment.CalcFragment">
 
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="800dp"
-                android:text="Owner Name"
-                app:layout_constraintTop_toBottomOf="@id/divider_the_second"
-                app:layout_constraintStart_toStartOf="parent" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/shed_number_card_view"
@@ -1677,66 +1670,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dailyTV" />
-
-            <TextView
-                android:id="@+id/d1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/overTV" />
-
-            <TextView
-                android:id="@+id/d2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/d1" />
-
-            <TextView
-                android:id="@+id/d3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/d2" />
-
-            <TextView
-                android:id="@+id/d4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/d3" />
-
-            <TextView
-                android:id="@+id/o1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/d1"
-                app:layout_constraintStart_toEndOf="@+id/d1" />
-
-            <TextView
-                android:id="@+id/o2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/d2"
-                app:layout_constraintStart_toEndOf="@+id/d2" />
-
-            <TextView
-                android:id="@+id/o3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/d3"
-                app:layout_constraintStart_toEndOf="@+id/d3" />
-
-            <TextView
-                android:id="@+id/o4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/d4"
-                app:layout_constraintStart_toEndOf="@+id/d4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

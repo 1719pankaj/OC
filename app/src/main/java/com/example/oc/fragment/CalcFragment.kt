@@ -46,8 +46,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.textView.text = RnN.Owner
-
         imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         //Heavy shit, might break
@@ -339,17 +337,6 @@ class CalcFragment : Fragment(),  DatePickerDialog.OnDateSetListener {
         SlabCalc.splitDailyBagsOTBags(binding)
         binding.dailyTV.text = CnN.DailyBags.roundToTwoDecimalPlaces().toString()
         binding.overTV.text = CnN.OtHourBags.roundToTwoDecimalPlaces().toString()
-
-        binding.d1.text = CnN.FirstSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.d2.text = CnN.SecondSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.d3.text = CnN.ThirdSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.d4.text = CnN.FourthSlabBags.roundToTwoDecimalPlaces().toString()
-
-        binding.o1.text = CnN.OtFirstSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.o2.text = CnN.OtSecondSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.o3.text = CnN.OtThirdSlabBags.roundToTwoDecimalPlaces().toString()
-        binding.o4.text = CnN.OtFourthSlabBags.roundToTwoDecimalPlaces().toString()
-
     }
 
     private fun setDefaults() {
