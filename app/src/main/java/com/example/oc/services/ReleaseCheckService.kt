@@ -25,7 +25,6 @@ class ReleaseCheckWorker(context: Context, workerParams: WorkerParameters) : Wor
 
     private val owner = "1719pankaj"
     private val repo = "OC"
-    private val token = KeysAndSecrets.githubToken
     val notificationId = "update_notiff"
 
 
