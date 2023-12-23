@@ -30,6 +30,7 @@ jobs:
           git push origin refs/tags/1.0.01rc
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          DEBUG: true
 
 
       - name: Grant execute permission to gradlew
