@@ -29,7 +29,10 @@ jobs:
         run: git config --global user.email "1719pankaj@gmail.com" && git config --global user.name "1719pankaj"
 
       - name: Create Git tag
-        run: git tag -a 1.0.01rc -m "Release version 1.0.0" && git push origin --tags
+        run: git tag -a 1.0.01rc -m "Release version 1.0.0" && git push origin refs/tags/1.0.0-rc
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+
 
   publish:
     runs-on: ubuntu-latest
