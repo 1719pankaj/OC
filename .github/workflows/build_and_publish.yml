@@ -26,7 +26,7 @@ jobs:
         run: ./gradlew build
 
       - name: Upload a Build Artifact
-        uses: actions/uptoad-artifact@v3.1.3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: 1.0.01rc.apk
           path: app/build/outputs/apk/debug/app-debug.apk
