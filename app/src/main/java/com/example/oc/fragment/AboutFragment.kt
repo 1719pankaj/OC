@@ -1,4 +1,4 @@
-package com.example.oc.calculators
+package com.example.oc.fragment
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -35,7 +35,7 @@ class AboutFragment : Fragment() {
     }
     //open a browser to the github page.
     fun openGithub() {
-        val url = "https://github.com/1719pankaj/OC"
+        val url = "https://github.com/1719pankaj/OC/releases"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
