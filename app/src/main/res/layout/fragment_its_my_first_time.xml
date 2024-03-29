@@ -9,26 +9,16 @@
 
 
     <Button
-        android:id="@+id/verifyBT"
+        android:id="@+id/sendOrVerifyBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VERIFY"
+        android:text="REQUEST CODE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.563" />
 
-    <TextView
-        android:id="@+id/keyTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/code_card_view"
-        app:layout_constraintEnd_toEndOf="@+id/code_card_view"
-        app:layout_constraintStart_toStartOf="@+id/code_card_view" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/code_card_view"
@@ -37,9 +27,11 @@
         android:layout_marginBottom="24dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/verifyBT"
-        app:layout_constraintEnd_toEndOf="@+id/verifyBT"
-        app:layout_constraintStart_toStartOf="@+id/verifyBT">
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/sendOrVerifyBT"
+        app:layout_constraintEnd_toEndOf="@+id/sendOrVerifyBT"
+        app:layout_constraintStart_toStartOf="@+id/sendOrVerifyBT">
 
         <EditText
             android:id="@+id/codeET"
@@ -58,14 +50,5 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/copy_sendBT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="COPY &amp; SEND"
-        app:layout_constraintEnd_toEndOf="@+id/verifyBT"
-        app:layout_constraintStart_toStartOf="@+id/verifyBT"
-        app:layout_constraintTop_toBottomOf="@+id/verifyBT" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

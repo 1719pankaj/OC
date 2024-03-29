@@ -8,6 +8,8 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -42,20 +44,40 @@ class ItsMyFirstTime : Fragment() {
 
         key = hashAndroidId(requireContext()).toString().uppercase()
         code = getUnlockKey(key)
-        binding.keyTV.text = key
 
-        binding.verifyBT.setOnClickListener {
-            if (binding.codeET.text.toString() == code) {
-                setFirstTime()
-                findNavController().navigate(R.id.action_itsMyFirstTime_to_notificationFragment)
-            } else {
-                Toast.makeText(context, "Enter correct C0D3!", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        binding.copySendBT.setOnClickListener {
+        binding.sendOrVerifyBT.setOnClickListener {
             copy_and_send()
         }
+
+        binding.codeET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s.toString().isNotEmpty()) {
+                    binding.sendOrVerifyBT.text = "VERIFY"
+                    binding.sendOrVerifyBT.setOnClickListener {
+                        if (binding.codeET.text.toString() == code) {
+                            setFirstTime()
+                            findNavController().navigate(R.id.action_itsMyFirstTime_to_notificationFragment)
+                        } else {
+                            Toast.makeText(context, "Enter correct C0D3!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    binding.sendOrVerifyBT.text = "REQUEST C0D3"
+                    binding.sendOrVerifyBT.setOnClickListener {
+                        copy_and_send()
+                    }
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // No action needed here
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // No action needed here
+            }
+        })
+
 
 
 
@@ -73,6 +95,7 @@ class ItsMyFirstTime : Fragment() {
 
 
     fun copy_and_send() {
+        binding.codeCardView.visibility = View.VISIBLE
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=+91${RnN.MaalkiKaNumber}&text=${key}"))
         startActivity(intent)

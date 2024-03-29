@@ -26,8 +26,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="34dp"
         android:fontFamily="@font/janna_lt_bold"
-        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-
+        android:text="FCI द्वारा प्रदत्त आउटपुट स्लिप जिसमे हमारे रोज के काम का लेखा-जोखा रहता है जिसका हिसाब करना एक जटिल काम है। इसी को ध्यान में रखते हुए मैने ये ऐप बनाया है ताकि हमारा कोई भी मजदूर भाई अपना आउटपुट का हिसाब आसानी से कर पाए। \n\nThe output slip provided by FCI contains the account of our daily work, which is a complex task to calculate. Keeping this in mind, I have created this app so that any of our laborer friends can calculate their output."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/about_label" />
@@ -45,7 +44,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:src="@drawable/github_logo"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/follow_label" />
