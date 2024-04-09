@@ -86,9 +86,9 @@ class ItsMyFirstTime : Fragment() {
 
     //set shared preference to false
     private fun setFirstTime() {
-        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("FirstTime", Context.MODE_PRIVATE)
+        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("ReturningUser", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putBoolean("FirstTime", false)
+        editor.putBoolean("ReturningUser", true)
         editor.apply()
     }
 

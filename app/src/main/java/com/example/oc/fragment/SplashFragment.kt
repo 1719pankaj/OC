@@ -28,7 +28,8 @@ class SplashFragment : Fragment() {
         val view = binding.root
 
         Handler().postDelayed({
-            if (getFirstTime()) {
+            if (!checkReturingUser()) {
+                Toast.makeText(requireContext(), "New User Detected", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_splashFragment2_to_itsMyFirstTime)
             } else {
                 //check if notifications are granted
@@ -57,9 +58,9 @@ class SplashFragment : Fragment() {
 
     //get shared preference for boolean
     //if true, navigate to itsMyFirstTime
-    fun getFirstTime(): Boolean {
-        val sharedPref = requireActivity().getSharedPreferences("FirstTime", MODE_PRIVATE)
-        return sharedPref.getBoolean("FirstTime", true)
+    fun checkReturingUser(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences("ReturningUser", MODE_PRIVATE)
+        return sharedPref.getBoolean("ReturningUser", false)
     }
 
 
