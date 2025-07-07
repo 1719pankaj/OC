@@ -3,7 +3,7 @@ package com.example.oc.data
 class RnN {
     companion object {
         var Owner: String = "MTL"
-        var CurrentVersion: String = "1.0.11rc"
+        var CurrentVersion: String = "1.01.03rc"
         var MaalkiKaNumber: String = "9883293901"
 
         var workingHours: Double = 7.0

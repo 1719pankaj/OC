@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="6dp"
-        tools:text="Hii"/>
+        android:layout_margin="48dp"
+        android:text="Hii"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

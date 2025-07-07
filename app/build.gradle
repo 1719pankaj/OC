@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-//    id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -38,7 +38,10 @@ android {
 }
 
 dependencies {
+
+    implementation 'com.google.gms:google-services:4.4.3'
     implementation 'androidx.work:work-runtime-ktx:2.10.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:25.1.4'
     def nav_version = '2.9.1'
 
     implementation 'com.github.Piashsarker:AndroidAppUpdateLibrary:1.0.4'
