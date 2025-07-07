@@ -19,5 +19,14 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
+    <TextView
+        android:id="@+id/firebaseDebugTV"
+        android:layout_width= "wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="6dp"
+        tools:text="Hii"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.oc'
-    compileSdk 33
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.oc"
         minSdk 24
-        targetSdk 33
+        targetSdk 35
         versionCode 1
         versionName "1.0.10rc"
 
@@ -38,8 +38,8 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.work:work-runtime-ktx:2.8.1'
-    def nav_version = "2.6.0"
+    implementation 'androidx.work:work-runtime-ktx:2.10.2'
+    def nav_version = '2.9.1'
 
     implementation 'com.github.Piashsarker:AndroidAppUpdateLibrary:1.0.4'
 
@@ -51,13 +51,15 @@ dependencies {
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+    implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
+    implementation("com.google.firebase:firebase-database")
 
-    implementation "com.squareup.okhttp3:okhttp:4.10.0"
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation "com.squareup.okhttp3:okhttp:5.0.0"
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }

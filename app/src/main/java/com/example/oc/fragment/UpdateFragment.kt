@@ -94,7 +94,7 @@ class UpdateFragment : Fragment() {
             if (releasesJson.length() > 0) {
                 val latestRelease = releasesJson.getJSONObject(0)
                 latest_version = latestRelease.getString("tag_name")
-                download_url = "https://github.com/1719pankaj/OC/releases/download/$latest_version/$latest_version.apk"
+                download_url = "https://github.com/1719pankaj/OC/releases/download/$latest_version/app-debug.apk"
             }
         } catch (e: Exception) {
             Log.e("ReleaseCheckWorker", "Error checking for new release", e)
