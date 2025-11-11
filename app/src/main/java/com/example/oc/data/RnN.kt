@@ -3,7 +3,7 @@ package com.example.oc.data
 class RnN {
     companion object {
         var Owner: String = "MTL"
-        var CurrentVersion: String = "1.01.03rc"
+        var CurrentVersion: String = "1.02.00rc"
         var MaalkiKaNumber: String = "9883293901"
 
         var workingHours: Double = 7.0
@@ -73,7 +73,7 @@ class RnN {
             perDayDANew = ((NewBasic * (NewDA / 100) * 12) / Days)
             perDayHRANew = ((NewBasic * (NewHRA / 100) * 12) / Days)
             perDayTotalNew = (perDayBasicNew + perDayDANew + perDayHRANew)
-            perHourTotal = ((perDayTotalNew / workingHours)*1.1)
+            perHourTotal = ((perDayTotalNew / workingHours) + ((perDayTotalNew / workingHours) / 100))
 
             H11_12 = perDayBags * 0.1
             H13_14 = perDayBags * 0.25

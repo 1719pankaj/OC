@@ -78,10 +78,10 @@ class MainActivity : AppCompatActivity(), MyCallback {
                     setSharedPrefs("TruckToTruck", document.getDouble("TruckToTruck")?.toInt()?.toDouble() ?: getSharedPrefs("TruckToTruck"))
 
                     setSharedPrefs("OldDA", document.getDouble("OldDA") ?: getSharedPrefs("OldDA"))
-                    setSharedPrefs("OldHRA", document.getDouble("OldHRA") ?: getSharedPrefs("OldHRA"))
+//                    setSharedPrefs("OldHRA", document.getDouble("OldHRA") ?: getSharedPrefs("OldHRA"))
                     setSharedPrefs("Days", document.getLong("Days")?.toInt()?.toDouble() ?: getSharedPrefs("Days"))
                     setSharedPrefs("NewDA", document.getDouble("NewDA") ?: getSharedPrefs("NewDA"))
-                    setSharedPrefs("NewHRA", document.getDouble("NewHRA") ?: getSharedPrefs("NewHRA"))
+//                    setSharedPrefs("NewHRA", document.getDouble("NewHRA") ?: getSharedPrefs("NewHRA"))
                     Log.d("RnN", "Data fetched successfully: $RnN")
                     getSharedPrefs()
                 } else {
