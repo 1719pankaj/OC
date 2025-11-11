@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "860763278293",
+    "project_id": "ocalc-5f9a6",
+    "storage_bucket": "ocalc-5f9a6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860763278293:android:1a1f63aeffb70e32de4b5c",
+        "android_client_info": {
+          "package_name": "com.example.oc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4XEczRxON0jOqP8qh230ddN9k_vEK4Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860763278293:android:f7c7c9172c3a6508de4b5c",
+        "android_client_info": {
+          "package_name": "com.example.ockey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4XEczRxON0jOqP8qh230ddN9k_vEK4Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
